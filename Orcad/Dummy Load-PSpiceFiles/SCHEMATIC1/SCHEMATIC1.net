@@ -1,0 +1,18 @@
+* source DUMMY LOAD
+V_Vcc         VCC 0 5V
+R_R3         0 N14702  0.5  
+V_Vss         VSS 0 12v
+R_R4         N17115 0  10k  
+X_U1A         N32894 N14702 VCC 0 N17115 LM324
+X_X1         VSS N17115 N14702 CSD18502KCS
+X_U1B         N28782 N27021 VCC 0 N27021 LM324
+R_R5         N27580 PWM  10K  
+R_R6         0 N27580  4.2K  
+R_R7         N28782 N27580  1k  
+C_C1         0 N28782  0.1u  
+V_V1         PWM 0  AC 5V
++PULSE 0V 5V 10e-9 10e-9 10e-9 {PW} 0.1e-3
+R_R8         N32894 N27021  1k  
+C_C2         0 N32894  0.2u  
+X_X2         VSS N17115 N14702 CSD18502KCS
+.PARAM  pw=0.08e-3

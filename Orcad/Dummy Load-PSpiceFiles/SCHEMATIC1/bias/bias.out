@@ -1,0 +1,270 @@
+
+**** 02/11/15 20:33:59 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\Users\Carlos_Asus\Documents\DummyLoad\dummy load-pspicefiles\schematic1\bias.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "bias.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Cadence\SPB_16.5\tools\PSpice\PSpice.ini file:
+.lib "C:\Cadence\SPB_16.5\tools\capture\library\pspice\CSD18502KCS.lib" 
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 10ms 0 
+.PROBE V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source DUMMY LOAD
+V_Vcc         VCC 0 5V
+R_R3         0 N14702  0.5  
+V_Vss         VSS 0 12v
+R_R4         N17115 0  10k  
+X_U1A         N32894 N14702 VCC 0 N17115 LM324
+X_X1         VSS N17115 N14702 CSD18502KCS
+X_U1B         N28782 N27021 VCC 0 N27021 LM324
+R_R5         N27580 PWM  10K  
+R_R6         0 N27580  4.2K  
+R_R7         N28782 N27580  1k  
+C_C1         0 N28782  0.1u  
+V_V1         PWM 0  AC 5V
++PULSE 0V 5V 10e-9 10e-9 10e-9 {PW} 0.1e-3
+R_R8         N32894 N27021  1k  
+C_C2         0 N32894  0.2u  
+R_R9         0 N14702  0.5  
+X_X2         VSS N17115 N14702 CSD18502KCS
+.PARAM  pw=0.08e-3
+
+**** RESUMING bias.cir ****
+.END
+
+INFO(ORPSIM-15453): Model X_X1.NMOS: Using BSIM VERSION 3.2
+
+INFO(ORPSIM-15453): Model X_X2.NMOS: Using BSIM VERSION 3.2
+
+**** 02/11/15 20:33:59 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\Users\Carlos_Asus\Documents\DummyLoad\dummy load-pspicefiles\schematic1\bias.sim ] 
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1A.dx        X_U1A.dy        X_U1B.dx        X_U1B.dy        
+          IS  800.000000E-18  800.000000E-18  800.000000E-18  800.000000E-18 
+          RS    1               1.000000E-03    1               1.000000E-03 
+         CJO                   10.000000E-12                   10.000000E-12 
+
+
+**** 02/11/15 20:33:59 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\Users\Carlos_Asus\Documents\DummyLoad\dummy load-pspicefiles\schematic1\bias.sim ] 
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1A.qx        X_U1B.qx        
+               PNP             PNP             
+       LEVEL    1               1            
+          IS  800.000000E-18  800.000000E-18 
+          BF  166.7           166.7          
+          NF    1               1            
+          BR    1               1            
+          NR    1               1            
+         ISS    0               0            
+          RE    0               0            
+          RC    0               0            
+         CJE    0               0            
+         VJE     .75             .75         
+         CJC    0               0            
+         VJC     .75             .75         
+         MJC     .33             .33         
+        XCJC    1               1            
+         CJS    0               0            
+         VJS     .75             .75         
+          KF    0               0            
+          AF    1               1            
+          CN    2.2             2.2          
+           D     .52             .52         
+
+
+**** 02/11/15 20:33:59 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\Users\Carlos_Asus\Documents\DummyLoad\dummy load-pspicefiles\schematic1\bias.sim ] 
+
+
+ ****     Current Controlled Switch MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1A.sw2       X_U1A.sw1       X_U1A.sw3       X_U1A.sw4       
+         RON    1               1               1               1            
+        ROFF   10.000000E+06   10.000000E+06   10.000000E+06   10.000000E+06 
+         ION    0              -1.000000E-06   -1.000000E-06    0            
+        IOFF   -1.000000E-06    0               0              -1.000000E-06 
+
+
+               X_U1B.sw2       X_U1B.sw1       X_U1B.sw3       X_U1B.sw4       
+         RON    1               1               1               1            
+        ROFF   10.000000E+06   10.000000E+06   10.000000E+06   10.000000E+06 
+         ION    0              -1.000000E-06   -1.000000E-06    0            
+        IOFF   -1.000000E-06    0               0              -1.000000E-06 
+
+
+**** 02/11/15 20:33:59 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\Users\Carlos_Asus\Documents\DummyLoad\dummy load-pspicefiles\schematic1\bias.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)   12.0000  (N14702)     .0102     
+
+(N17115)    1.9188 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)   12.0000 (X_X1.5)    1.9188 (X_X1.6)     .0102     
+
+(X_X1.7)   12.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_X2.4)   12.0000     
+
+(X_X2.5)    1.9188 (X_X2.6)     .0102 (X_X2.7)   12.0000 (X_X2.8)     .0102     
+
+(X_X2.9)     .0102 (X_U1A.6) 106.8E-06                   (X_U1A.7)    1.9284    
+
+(X_U1A.8)    1.9284                   (X_U1A.9)    0.0000                       
+
+(X_U1A.a)    4.9998                   (X_U1A.b)-191.9E-06                       
+
+(X_U1B.6)     .1660                   (X_U1B.7)   -1.7412                       
+
+(X_U1B.8)   -1.7412                   (X_U1B.9)    0.0000                       
+
+(X_U1B.a)     .0350                   (X_U1B.b)     .0350                       
+
+(X_X1.10)   12.0000                   (X_X1.11)    1.9188                       
+
+(X_X1.12)     .0102                   (X_X2.10)   12.0000                       
+
+(X_X2.11)    1.9188                   (X_X2.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .1919                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)   11.9900               (X_X1.xcds.6) 1.323E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)   11.9900               (X_X1.xcgd.6) 30.71E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000                   
+
+(X_X2.xcds.5)   11.9900               (X_X2.xcds.6) 1.323E-09                   
+
+(X_X2.xcds.7)    0.0000               (X_X2.xcds.8)    0.0000                   
+
+(X_X2.xcgd.5)   11.9900               (X_X2.xcgd.6) 30.71E-12                   
+
+(X_X2.xcgd.7)    0.0000               (X_X2.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.324E-03
+    V_Vss       -4.086E-02
+    V_V1         1.501E-08
+    X_U1A.vb     1.068E-09
+    X_U1A.vc     1.582E-12
+    X_U1A.ve     1.009E-12
+    X_U1A.vlim   1.919E-04
+    X_U1A.vlp   -3.981E-11
+    X_U1A.vln   -4.020E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.989E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+    X_X2.xcgd.v1   0.000E+00
+    X_X2.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   5.26E-01  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 02/11/15 20:33:59 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\Users\Carlos_Asus\Documents\DummyLoad\dummy load-pspicefiles\schematic1\bias.sim ] 
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =        1.79
+

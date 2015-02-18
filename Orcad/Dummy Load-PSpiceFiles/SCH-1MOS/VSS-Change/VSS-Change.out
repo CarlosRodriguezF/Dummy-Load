@@ -1,0 +1,2723 @@
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "VSS-Change.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Cadence\SPB_16.5\tools\PSpice\PSpice.ini file:
+.lib "C:\Cadence\SPB_16.5\tools\capture\library\pspice\CSD18502KCS.lib" 
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 10ms 0 
+.STEP LIN PARAM VSS 1 20 1 
+.PROBE V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCH-1MOS.net" 
+
+
+
+**** INCLUDING SCH-1MOS.net ****
+* source DUMMY LOAD
+V_Vcc         VCC 0 5V
+R_R3         0 N14702  0.5  
+V_Vss         VSS 0 {VSS}
+R_R4         N17115 0  10k  
+X_U1A         N32894 N14702 VCC 0 N17115 LM324
+X_X1         VSS N17115 N14702 CSD18502KCS
+X_U1B         N28782 N27021 VCC 0 N27021 LM324
+R_R5         N27580 PWM  10K  
+R_R6         0 N27580  4.2K  
+R_R7         N28782 N27580  1k  
+C_C1         0 N28782  0.1u  
+V_V1         PWM 0  AC 5V
++PULSE 0V 5V 10e-9 10e-9 10e-9 {1*PER} {PER}
+R_R8         N32894 N27021  1k  
+C_C2         0 N32894  0.1u  
+.PARAM  per=2e-4 pw={1*per} vss=3
+
+**** RESUMING VSS-Change.cir ****
+.END
+
+INFO(ORPSIM-15453): Model X_X1.NMOS: Using BSIM VERSION 3.2
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1A.dx        X_U1A.dy        X_U1B.dx        X_U1B.dy        
+          IS  800.000000E-18  800.000000E-18  800.000000E-18  800.000000E-18 
+          RS    1               1.000000E-03    1               1.000000E-03 
+         CJO                   10.000000E-12                   10.000000E-12 
+
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1A.qx        X_U1B.qx        
+               PNP             PNP             
+       LEVEL    1               1            
+          IS  800.000000E-18  800.000000E-18 
+          BF  166.7           166.7          
+          NF    1               1            
+          BR    1               1            
+          NR    1               1            
+         ISS    0               0            
+          RE    0               0            
+          RC    0               0            
+         CJE    0               0            
+         VJE     .75             .75         
+         CJC    0               0            
+         VJC     .75             .75         
+         MJC     .33             .33         
+        XCJC    1               1            
+         CJS    0               0            
+         VJS     .75             .75         
+          KF    0               0            
+          AF    1               1            
+          CN    2.2             2.2          
+           D     .52             .52         
+
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     Current Controlled Switch MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1A.sw2       X_U1A.sw1       X_U1A.sw3       X_U1A.sw4       
+         RON    1               1               1               1            
+        ROFF   10.000000E+06   10.000000E+06   10.000000E+06   10.000000E+06 
+         ION    0              -1.000000E-06   -1.000000E-06    0            
+        IOFF   -1.000000E-06    0               0              -1.000000E-06 
+
+
+               X_U1B.sw2       X_U1B.sw1       X_U1B.sw3       X_U1B.sw4       
+         RON    1               1               1               1            
+        ROFF   10.000000E+06   10.000000E+06   10.000000E+06   10.000000E+06 
+         ION    0              -1.000000E-06   -1.000000E-06    0            
+        IOFF   -1.000000E-06    0               0              -1.000000E-06 
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 1
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =    1     
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    1.0000  (N14702)     .0102     
+
+(N17115)    2.0761 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)    1.0000 (X_X1.5)    2.0761 (X_X1.6)     .0102     
+
+(X_X1.7)    1.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 76.94E-06    
+
+(X_U1A.7)    2.0864                   (X_U1A.8)    2.0864                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-207.6E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)    1.0000                       
+
+(X_X1.11)    2.0761                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .2076                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)     .9898               (X_X1.xcds.6) 4.933E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)     .9898               (X_X1.xcgd.6) 335.6E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.340E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     7.694E-10
+    X_U1A.vc     1.425E-12
+    X_U1A.ve     1.167E-12
+    X_U1A.vlim   2.076E-04
+    X_U1A.vlp   -3.979E-11
+    X_U1A.vln   -4.021E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   5.59E-02  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 2
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =    2     
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    2.0000  (N14702)     .0102     
+
+(N17115)    2.0553 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)    2.0000 (X_X1.5)    2.0553 (X_X1.6)     .0102     
+
+(X_X1.7)    2.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 80.88E-06    
+
+(X_U1A.7)    2.0656                   (X_U1A.8)    2.0656                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-205.5E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)    2.0000                       
+
+(X_X1.11)    2.0553                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .2055                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)    1.9898               (X_X1.xcds.6) 4.167E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    1.9898               (X_X1.xcgd.6) 311.2E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.338E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     8.088E-10
+    X_U1A.vc     1.445E-12
+    X_U1A.ve     1.146E-12
+    X_U1A.vlim   2.055E-04
+    X_U1A.vlp   -3.980E-11
+    X_U1A.vln   -4.021E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   7.63E-02  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 3
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =    3     
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    3.0000  (N14702)     .0102     
+
+(N17115)    2.0379 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)    3.0000 (X_X1.5)    2.0379 (X_X1.6)     .0102     
+
+(X_X1.7)    3.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 84.19E-06    
+
+(X_U1A.7)    2.0481                   (X_U1A.8)    2.0481                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-203.8E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)    3.0000                       
+
+(X_X1.11)    2.0379                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .2038                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)    2.9898               (X_X1.xcds.6) 3.704E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    2.9898               (X_X1.xcgd.6) 291.2E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.336E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     8.419E-10
+    X_U1A.vc     1.463E-12
+    X_U1A.ve     1.128E-12
+    X_U1A.vlim   2.038E-04
+    X_U1A.vlp   -3.980E-11
+    X_U1A.vln   -4.021E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   9.67E-02  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 4
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =    4     
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    4.0000  (N14702)     .0102     
+
+(N17115)    2.0228 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)    4.0000 (X_X1.5)    2.0228 (X_X1.6)     .0102     
+
+(X_X1.7)    4.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 87.06E-06    
+
+(X_U1A.7)    2.0329                   (X_U1A.8)    2.0329                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-202.3E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)    4.0000                       
+
+(X_X1.11)    2.0228                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .2023                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)    3.9898               (X_X1.xcds.6) 3.363E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    3.9898               (X_X1.xcgd.6) 272.2E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.335E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     8.706E-10
+    X_U1A.vc     1.478E-12
+    X_U1A.ve     1.113E-12
+    X_U1A.vlim   2.023E-04
+    X_U1A.vlp   -3.980E-11
+    X_U1A.vln   -4.021E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   1.17E-01  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 5
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =    5     
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    5.0000  (N14702)     .0102     
+
+(N17115)    2.0095 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)    5.0000 (X_X1.5)    2.0095 (X_X1.6)     .0102     
+
+(X_X1.7)    5.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 89.59E-06    
+
+(X_U1A.7)    2.0195                   (X_U1A.8)    2.0195                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-200.9E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)    5.0000                       
+
+(X_X1.11)    2.0095                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .2009                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)    4.9898               (X_X1.xcds.6) 3.103E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    4.9898               (X_X1.xcgd.6) 254.2E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.333E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     8.959E-10
+    X_U1A.vc     1.491E-12
+    X_U1A.ve     1.100E-12
+    X_U1A.vlim   2.009E-04
+    X_U1A.vlp   -3.980E-11
+    X_U1A.vln   -4.021E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   1.38E-01  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 6
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =    6     
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    6.0000  (N14702)     .0102     
+
+(N17115)    1.9974 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)    6.0000 (X_X1.5)    1.9974 (X_X1.6)     .0102     
+
+(X_X1.7)    6.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 91.87E-06    
+
+(X_U1A.7)    2.0074                   (X_U1A.8)    2.0074                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-199.7E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)    6.0000                       
+
+(X_X1.11)    1.9974                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .1997                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)    5.9898               (X_X1.xcds.6) 2.892E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    5.9898               (X_X1.xcgd.6) 238.2E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.332E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     9.187E-10
+    X_U1A.vc     1.503E-12
+    X_U1A.ve     1.088E-12
+    X_U1A.vlim   1.997E-04
+    X_U1A.vlp   -3.980E-11
+    X_U1A.vln   -4.020E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   1.58E-01  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 7
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =    7     
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    7.0000  (N14702)     .0102     
+
+(N17115)    1.9862 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)    7.0000 (X_X1.5)    1.9862 (X_X1.6)     .0102     
+
+(X_X1.7)    7.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 94.01E-06    
+
+(X_U1A.7)    1.9961                   (X_U1A.8)    1.9961                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-198.6E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)    7.0000                       
+
+(X_X1.11)    1.9862                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .1986                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)    6.9898               (X_X1.xcds.6) 2.692E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    6.9898               (X_X1.xcgd.6) 221.2E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.331E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     9.401E-10
+    X_U1A.vc     1.515E-12
+    X_U1A.ve     1.077E-12
+    X_U1A.vlim   1.986E-04
+    X_U1A.vlp   -3.980E-11
+    X_U1A.vln   -4.020E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   1.78E-01  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 8
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =    8     
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    8.0000  (N14702)     .0102     
+
+(N17115)    1.9751 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)    8.0000 (X_X1.5)    1.9751 (X_X1.6)     .0102     
+
+(X_X1.7)    8.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 96.11E-06    
+
+(X_U1A.7)    1.9850                   (X_U1A.8)    1.9850                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-197.5E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)    8.0000                       
+
+(X_X1.11)    1.9751                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .1975                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)    7.9898               (X_X1.xcds.6) 2.482E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    7.9898               (X_X1.xcgd.6) 198.2E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.330E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     9.611E-10
+    X_U1A.vc     1.526E-12
+    X_U1A.ve     1.066E-12
+    X_U1A.vlim   1.975E-04
+    X_U1A.vlp   -3.980E-11
+    X_U1A.vln   -4.020E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   1.99E-01  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 9
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =    9     
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    9.0000  (N14702)     .0102     
+
+(N17115)    1.9634 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)    9.0000 (X_X1.5)    1.9634 (X_X1.6)     .0102     
+
+(X_X1.7)    9.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 98.33E-06    
+
+(X_U1A.7)    1.9733                   (X_U1A.8)    1.9733                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-196.3E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)    9.0000                       
+
+(X_X1.11)    1.9634                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .1963                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)    8.9898               (X_X1.xcds.6) 2.302E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    8.9898               (X_X1.xcgd.6) 177.2E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.329E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     9.833E-10
+    X_U1A.vc     1.537E-12
+    X_U1A.ve     1.054E-12
+    X_U1A.vlim   1.963E-04
+    X_U1A.vlp   -3.980E-11
+    X_U1A.vln   -4.020E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   2.19E-01  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 10
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =   10    
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)   10.0000  (N14702)     .0102     
+
+(N17115)    1.9505 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)   10.0000 (X_X1.5)    1.9505 (X_X1.6)     .0102     
+
+(X_X1.7)   10.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 100.8E-06    
+
+(X_U1A.7)    1.9602                   (X_U1A.8)    1.9602                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-195.0E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)   10.0000                       
+
+(X_X1.11)    1.9505                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .1950                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)    9.9898               (X_X1.xcds.6) 2.151E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    9.9898               (X_X1.xcgd.6) 154.2E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.327E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     1.008E-09
+    X_U1A.vc     1.550E-12
+    X_U1A.ve     1.041E-12
+    X_U1A.vlim   1.950E-04
+    X_U1A.vlp   -3.981E-11
+    X_U1A.vln   -4.020E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   2.40E-01  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 11
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =   11    
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)   11.0000  (N14702)     .0102     
+
+(N17115)    1.9356 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)   11.0000 (X_X1.5)    1.9356 (X_X1.6)     .0102     
+
+(X_X1.7)   11.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 103.6E-06    
+
+(X_U1A.7)    1.9453                   (X_U1A.8)    1.9453                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-193.6E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)   11.0000                       
+
+(X_X1.11)    1.9356                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .1936                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)   10.9900               (X_X1.xcds.6) 2.041E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)   10.9900               (X_X1.xcgd.6) 81.93E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.326E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     1.036E-09
+    X_U1A.vc     1.565E-12
+    X_U1A.ve     1.026E-12
+    X_U1A.vlim   1.936E-04
+    X_U1A.vlp   -3.981E-11
+    X_U1A.vln   -4.020E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   2.60E-01  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 12
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =   12    
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)   12.0000  (N14702)     .0102     
+
+(N17115)    1.9188 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)   12.0000 (X_X1.5)    1.9188 (X_X1.6)     .0102     
+
+(X_X1.7)   12.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 106.8E-06    
+
+(X_U1A.7)    1.9284                   (X_U1A.8)    1.9284                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-191.9E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)   12.0000                       
+
+(X_X1.11)    1.9188                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .1919                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)   11.9900               (X_X1.xcds.6) 1.323E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)   11.9900               (X_X1.xcgd.6) 30.71E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.324E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     1.068E-09
+    X_U1A.vc     1.582E-12
+    X_U1A.ve     1.009E-12
+    X_U1A.vlim   1.919E-04
+    X_U1A.vlp   -3.981E-11
+    X_U1A.vln   -4.020E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   2.81E-01  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 13
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =   13    
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)   13.0000  (N14702)     .0102     
+
+(N17115)    1.9000 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)   13.0000 (X_X1.5)    1.9000 (X_X1.6)     .0102     
+
+(X_X1.7)   13.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 110.4E-06    
+
+(X_U1A.7)    1.9095                   (X_U1A.8)    1.9095                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-190.0E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)   13.0000                       
+
+(X_X1.11)    1.9000                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .1900                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)   12.9900               (X_X1.xcds.6) 1.211E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)   12.9900               (X_X1.xcgd.6) 28.52E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.322E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     1.104E-09
+    X_U1A.vc     1.601E-12
+    X_U1A.ve     9.905E-13
+    X_U1A.vlim   1.900E-04
+    X_U1A.vlp   -3.981E-11
+    X_U1A.vln   -4.019E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   3.01E-01  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 14
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =   14    
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)   14.0000  (N14702)     .0102     
+
+(N17115)    1.8797 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)   14.0000 (X_X1.5)    1.8797 (X_X1.6)     .0102     
+
+(X_X1.7)   14.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 114.2E-06    
+
+(X_U1A.7)    1.8891                   (X_U1A.8)    1.8891                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-188.0E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)   14.0000                       
+
+(X_X1.11)    1.8797                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .1880                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)   13.9900               (X_X1.xcds.6) 1.141E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)   13.9900               (X_X1.xcgd.6) 26.82E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.320E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     1.142E-09
+    X_U1A.vc     1.621E-12
+    X_U1A.ve     9.702E-13
+    X_U1A.vlim   1.880E-04
+    X_U1A.vlp   -3.981E-11
+    X_U1A.vln   -4.019E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   3.21E-01  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 15
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =   15    
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)   15.0000  (N14702)     .0102     
+
+(N17115)    1.8584 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)   15.0000 (X_X1.5)    1.8584 (X_X1.6)     .0102     
+
+(X_X1.7)   15.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 118.3E-06    
+
+(X_U1A.7)    1.8677                   (X_U1A.8)    1.8677                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-185.8E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)   15.0000                       
+
+(X_X1.11)    1.8584                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .1858                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)   14.9900               (X_X1.xcds.6) 1.081E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)   14.9900               (X_X1.xcgd.6) 25.61E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.318E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     1.183E-09
+    X_U1A.vc     1.642E-12
+    X_U1A.ve     9.489E-13
+    X_U1A.vlim   1.858E-04
+    X_U1A.vlp   -3.982E-11
+    X_U1A.vln   -4.019E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   3.42E-01  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 16
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =   16    
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)   16.0000  (N14702)     .0102     
+
+(N17115)    1.8367 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)   16.0000 (X_X1.5)    1.8367 (X_X1.6)     .0102     
+
+(X_X1.7)   16.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 122.4E-06    
+
+(X_U1A.7)    1.8459                   (X_U1A.8)    1.8459                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-183.7E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)   16.0000                       
+
+(X_X1.11)    1.8367                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .1837                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)   15.9900               (X_X1.xcds.6) 1.031E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)   15.9900               (X_X1.xcgd.6) 24.51E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.316E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     1.224E-09
+    X_U1A.vc     1.664E-12
+    X_U1A.ve     9.273E-13
+    X_U1A.vlim   1.837E-04
+    X_U1A.vlp   -3.982E-11
+    X_U1A.vln   -4.019E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   3.62E-01  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 17
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =   17    
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)   17.0000  (N14702)     .0102     
+
+(N17115)    1.8151 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)   17.0000 (X_X1.5)    1.8151 (X_X1.6)     .0102     
+
+(X_X1.7)   17.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 126.5E-06    
+
+(X_U1A.7)    1.8242                   (X_U1A.8)    1.8242                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-181.5E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)   17.0000                       
+
+(X_X1.11)    1.8151                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .1815                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)   16.9900               (X_X1.xcds.6) 986.5E-12                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)   16.9900               (X_X1.xcgd.6) 23.61E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.314E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     1.265E-09
+    X_U1A.vc     1.686E-12
+    X_U1A.ve     9.056E-13
+    X_U1A.vlim   1.815E-04
+    X_U1A.vlp   -3.982E-11
+    X_U1A.vln   -4.019E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   3.83E-01  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 18
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =   18    
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)   18.0000  (N14702)     .0102     
+
+(N17115)    1.7939 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)   18.0000 (X_X1.5)    1.7939 (X_X1.6)     .0102     
+
+(X_X1.7)   18.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 130.5E-06    
+
+(X_U1A.7)    1.8029                   (X_U1A.8)    1.8029                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-179.4E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)   18.0000                       
+
+(X_X1.11)    1.7939                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .1794                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)   17.9900               (X_X1.xcds.6) 947.4E-12                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)   17.9900               (X_X1.xcgd.6) 22.81E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.312E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     1.305E-09
+    X_U1A.vc     1.707E-12
+    X_U1A.ve     8.844E-13
+    X_U1A.vlim   1.794E-04
+    X_U1A.vlp   -3.982E-11
+    X_U1A.vln   -4.018E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   4.03E-01  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 19
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =   19    
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)   19.0000  (N14702)     .0102     
+
+(N17115)    1.7732 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)   19.0000 (X_X1.5)    1.7732 (X_X1.6)     .0102     
+
+(X_X1.7)   19.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 134.5E-06    
+
+(X_U1A.7)    1.7821                   (X_U1A.8)    1.7821                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-177.3E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)   19.0000                       
+
+(X_X1.11)    1.7732                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .1773                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)   18.9900               (X_X1.xcds.6) 912.3E-12                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)   18.9900               (X_X1.xcgd.6) 22.11E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.310E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     1.345E-09
+    X_U1A.vc     1.728E-12
+    X_U1A.ve     8.638E-13
+    X_U1A.vlim   1.773E-04
+    X_U1A.vlp   -3.982E-11
+    X_U1A.vln   -4.018E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   4.24E-01  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 20
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM VSS =   20    
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)   20.0000  (N14702)     .0102     
+
+(N17115)    1.7534 (N27021)     .0096 (N27580) 150.1E-06 (N28782) 200.8E-06     
+
+(N32894)     .0096 (X_X1.4)   20.0000 (X_X1.5)    1.7534 (X_X1.6)     .0102     
+
+(X_X1.7)   20.0000 (X_X1.8)     .0102 (X_X1.9)     .0102 (X_U1A.6) 138.2E-06    
+
+(X_U1A.7)    1.7621                   (X_U1A.8)    1.7621                       
+
+(X_U1A.9)    0.0000                   (X_U1A.a)    4.9998                       
+
+(X_U1A.b)-175.3E-06                   (X_U1B.6)     .1660                       
+
+(X_U1B.7)   -1.7412                   (X_U1B.8)   -1.7412                       
+
+(X_U1B.9)    0.0000                   (X_U1B.a)     .0350                       
+
+(X_U1B.b)     .0350                   (X_X1.10)   20.0000                       
+
+(X_X1.11)    1.7534                   (X_X1.12)     .0102                       
+
+(X_U1A.10)     .6181                  (X_U1A.11)     .0399                      
+
+(X_U1A.12)     .0405                  (X_U1A.13)     .6041                      
+
+(X_U1A.14)     .6039                  (X_U1A.53)    3.5000                      
+
+(X_U1A.54)     .8220                  (X_U1A.90)     .1753                      
+
+(X_U1A.91)   40.0000                  (X_U1A.92)  -40.0000                      
+
+(X_U1A.99)    2.5000                  (X_U1B.10)     .6129                      
+
+(X_U1B.11)     .0355                  (X_U1B.12)     .0449                      
+
+(X_U1B.13)     .6005                  (X_U1B.14)     .5972                      
+
+(X_U1B.53)    3.5000                  (X_U1B.54)     .8220                      
+
+(X_U1B.90)  -35.0150                  (X_U1B.91)   40.0000                      
+
+(X_U1B.92)  -40.0000                  (X_U1B.99)    2.5000                      
+
+(X_X1.xcds.5)   19.9900               (X_X1.xcds.6) 880.3E-12                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)   19.9900               (X_X1.xcgd.6) 21.51E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.308E-03
+    V_Vss       -2.043E-02
+    V_V1         1.501E-08
+    X_U1A.vb     1.382E-09
+    X_U1A.vc     1.747E-12
+    X_U1A.ve     8.439E-13
+    X_U1A.vlim   1.753E-04
+    X_U1A.vlp   -3.983E-11
+    X_U1A.vln   -4.018E-11
+    X_U1B.vb     1.660E-06
+    X_U1B.vc     3.491E-12
+    X_U1B.ve    -3.501E-02
+    X_U1B.vlim  -3.501E-02
+    X_U1B.vlp   -7.502E-11
+    X_U1B.vln   -4.990E-12
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   4.44E-01  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+
+          JOB CONCLUDED
+
+**** 02/15/15 12:42:32 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-VSS-Change"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\VSS-Change.sim ] 
+
+
+ ****     JOB STATISTICS SUMMARY
+
+ ****     CURRENT STEP                     PARAM VSS =   20    
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =        2.70
+

@@ -1,0 +1,52 @@
+
+**** 02/11/15 20:07:25 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\Users\Carlos_Asus\Documents\DummyLoad\dummy load-pspicefiles\schematic1\bias.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "bias.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Cadence\SPB_16.5\tools\PSpice\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 10ms 0 
+.PROBE V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source DUMMY LOAD
+V_Vcc         VCC 0 5V
+R_R3         0 N14702  0.5  
+V_Vss         VSS 0 12v
+R_R4         N17115 0  10k  
+X_U1A         N17051 N14702 VCC 0 N17115 LM324
+X_X1         VSS N17115 N14702 CSD18502KCS
+X_U1B         N28782 N17051 VCC 0 N17051 LM324
+R_R5         N27580 PWM  10K  
+R_R6         0 N27580  4.2K  
+R_R7         N28782 N27580  1k  
+C_C1         0 N28782  0.1u  
+V_V1         PWM 0  AC 5V
++PULSE 0V 5V 10e-9 10e-9 10e-9 0.08e-3 0.1e-3
+
+**** RESUMING bias.cir ****
+.END
+
+
+ERROR(ORPSIM-15108): Subcircuit CSD18502KCS used by X_X1 is undefined
+
