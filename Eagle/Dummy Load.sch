@@ -34793,7 +34793,7 @@ Source: DCJ0202.pdf</description>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="S1" library="switch-omron" deviceset="10-XX" device=""/>
-<part name="R21" library="rcl" deviceset="R-EU_" device="R0805" value="330"/>
+<part name="R21" library="rcl" deviceset="R-EU_" device="R0805" value="400"/>
 <part name="R22" library="rcl" deviceset="R-EU_" device="R0805" value="330"/>
 <part name="R23" library="rcl" deviceset="R-EU_" device="R0805" value="330"/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
