@@ -1,0 +1,7 @@
+ lib=C:\Cadence\SPB_16.5\tools\pspice\library\anl_misc.lib, offset=21422, size=1021
+ lib=C:\Cadence\SPB_16.5\tools\pspice\library\anl_misc.lib, offset=20942, size=479
+ lib=C:\Cadence\SPB_16.5\tools\capture\library\pspice\CSD18502KCS.lib, offset=37902, size=7974
+ lib=C:\Cadence\SPB_16.5\tools\PSpice\Library\nat_semi.lib, offset=370476, size=2623
+ lib=C:\Cadence\SPB_16.5\tools\PSpice\Library\on_zener.lib, offset=1144, size=561
+ lib=C:\Cadence\SPB_16.5\tools\capture\library\pspice\CSD18502KCS.lib, offset=14120, size=11890
+ lib=C:\Cadence\SPB_16.5\tools\capture\library\pspice\CSD18502KCS.lib, offset=26011, size=11890

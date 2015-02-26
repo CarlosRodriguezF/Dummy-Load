@@ -1,4 +1,8 @@
+ lib=C:\Cadence\SPB_16.5\tools\pspice\library\anl_misc.lib, offset=21422, size=1021
+ lib=C:\Cadence\SPB_16.5\tools\pspice\library\anl_misc.lib, offset=20942, size=479
  lib=C:\Cadence\SPB_16.5\tools\capture\library\pspice\CSD18502KCS.lib, offset=37902, size=7974
- lib=C:\Cadence\SPB_16.5\tools\PSpice\Library\opamp.lib, offset=51697, size=1449
+ lib=C:\Cadence\SPB_16.5\tools\PSpice\Library\diode.lib, offset=18135, size=70
+ lib=C:\Cadence\SPB_16.5\tools\PSpice\Library\nat_semi.lib, offset=367893, size=2582
+ lib=C:\Cadence\SPB_16.5\tools\PSpice\Library\diode.lib, offset=13853, size=211
  lib=C:\Cadence\SPB_16.5\tools\capture\library\pspice\CSD18502KCS.lib, offset=14120, size=11890
  lib=C:\Cadence\SPB_16.5\tools\capture\library\pspice\CSD18502KCS.lib, offset=26011, size=11890

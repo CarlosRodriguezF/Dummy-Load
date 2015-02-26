@@ -1,0 +1,62 @@
+
+**** 02/23/15 21:22:57 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\Dummy Load-PSpiceFiles\SCH-1MOS\PWMchange.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "PWMchange.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Cadence\SPB_16.5\tools\PSpice\PSpice.ini file:
+.lib "C:\Cadence\SPB_16.5\tools\pspice\library\anl_misc.lib" 
+.lib "C:\Cadence\SPB_16.5\tools\capture\library\pspice\CSD18502KCS.lib" 
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 10ms 0 
+.STEP LIN PARAM D 0 0.1 1 
+.PROBE V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCH-1MOS.net" 
+
+
+
+**** INCLUDING SCH-1MOS.net ****
+* source DUMMY LOAD
+V_Vcc         VCC 0 5V
+R_R3         0 N14702  0.5  
+V_Vss         VSS 0 {VSS}
+X_X1         VSS N42830 N14702 CSD18502KCS
+R_R5         N27580 PWM1  10k  
+R_R6         0 N27580  4.2k  
+R_R7         N28782 N27580  1k  
+C_C1         0 N28782  0.1u  
+V_V1         PWM 0  AC 5V
++PULSE 0V 5V 10e-9 10e-9 10e-9 {D}*5e-5 5e-5
+----------------------------------$
+ERROR -- Expecting keyword STIMULUS, saw *5e-5.
+
+R_R8         N32894 N27021  1k  
+C_C2         0 N32894  0.1u  
+X_U5A         N32894 N14702 VCC 0 N41306 LMC662B/NS
+R_R4         N41306 0  100k  
+X_U6         PWM PWM1 Sw_tOpen PARAMS: tOpen=0 ttran=1u Rclosed=0.01 Ropen=1Meg
+X_U7         PWM PWM1 Sw_tClose PARAMS: tClose=3m ttran=1u Rclosed=0.01
++  Ropen=1Meg
+X_U8A         N28782 N27021 VCC 0 N27021 LMC662B/NS
+R_R9         N42830 N41306  10k  
+.PARAM  per=5e-5 pw={d*5e-5} d=1 vss=12
+
+**** RESUMING PWMchange.cir ****
+.END
+

@@ -1,0 +1,21 @@
+** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\pwmchange.sim ] 
+
+** Creating circuit file "PWMchange.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Cadence\SPB_16.5\tools\PSpice\PSpice.ini file:
+.lib "C:\Cadence\SPB_16.5\tools\pspice\library\anl_misc.lib" 
+.lib "C:\Cadence\SPB_16.5\tools\capture\library\pspice\CSD18502KCS.lib" 
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 10ms 0 
+.STEP PARAM D LIST 0,0.05,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1 
+.PROBE V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCH-1MOS.net" 
+
+
+.END

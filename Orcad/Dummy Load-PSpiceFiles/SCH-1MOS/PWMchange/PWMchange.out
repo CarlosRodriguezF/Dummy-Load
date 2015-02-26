@@ -1,0 +1,2122 @@
+
+**** 02/24/15 00:03:46 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\pwmchange.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "PWMchange.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Cadence\SPB_16.5\tools\PSpice\PSpice.ini file:
+.lib "C:\Cadence\SPB_16.5\tools\pspice\library\anl_misc.lib" 
+.lib "C:\Cadence\SPB_16.5\tools\capture\library\pspice\CSD18502KCS.lib" 
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 10ms 0 
+.STEP PARAM D LIST 0,0.05,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1 
+.PROBE V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCH-1MOS.net" 
+
+
+
+**** INCLUDING SCH-1MOS.net ****
+* source DUMMY LOAD
+V_Vcc         VCC 0 5V
+R_R3         0 N14704  0.5  
+V_Vss         VSS 0 {VSS}
+X_X1         VSS N45179 N14704 CSD18502KCS
+R_R5         N27580 PWM1  10k  
+R_R6         0 N27580  4.2k  
+R_R7         N28782 N27580  1k  
+C_C1         0 N28782  0.1u  
+V_V1         PWM 0  AC 5V
++PULSE 0V 5V 10e-9 10e-9 10e-9 {D*PER} {PER}
+R_R8         N33036 N27021  1k  
+C_C2         0 N33036  0.1u  
+X_U5A         N33036 N14704 VCC 0 N42822 LMC662B/NS
+X_U6         PWM PWM1 Sw_tOpen PARAMS: tOpen=0 ttran=1u Rclosed=0.01 Ropen=1Meg
+X_U7         PWM PWM1 Sw_tClose PARAMS: tClose=3m ttran=1u Rclosed=0.01
++  Ropen=1Meg
+X_U8A         N28782 N27021 VCC 0 N27021 LMC662B/NS
+R_R9         N45179 N42822  10k  
+R_R4         N42822 0  100k  
+X_D1         N45179 0 MMSZ5221BT1
+.PARAM  per=5e-5 pw={d*per} d=0.9 vss=1.8
+
+**** RESUMING PWMchange.cir ****
+.END
+
+INFO(ORPSIM-15453): Model X_X1.NMOS: Using BSIM VERSION 3.2
+
+**** 02/24/15 00:03:46 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\pwmchange.sim ] 
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U5A.DA        X_U5A.DB        X_U5A.DX        X_U8A.DA        
+          IS   13.000000E-15   12.000000E-15   10.000000E-15   13.000000E-15 
+
+
+               X_U8A.DB        X_U8A.DX        X_D1.FWD_DIO    X_D1.MD_REV     
+          IS   12.000000E-15   10.000000E-15  657.933000E-12    2.500000E-12 
+           N                                    1.84949          .5          
+          RS                                    1.02                         
+          TT                                    2.000000E-09                 
+         CJO                                  210.000000E-12                 
+          EG                                                     .1          
+         XTI                                    1               0            
+
+
+               X_D1.MD_REV2    
+          IS    2.500000E-12 
+           N     .65         
+          EG     .1          
+         XTI    0            
+
+
+**** 02/24/15 00:03:46 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\pwmchange.sim ] 
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U5A.MX        X_U8A.MX        
+               PMOS            PMOS            
+       LEVEL    1               1            
+           L  100.000000E-06  100.000000E-06 
+           W  100.000000E-06  100.000000E-06 
+         VTO   -2.45           -2.45         
+          KP  705.470000E-06  705.470000E-06 
+       GAMMA    0               0            
+         PHI     .6              .6          
+      LAMBDA    0               0            
+          IS   10.000000E-15   10.000000E-15 
+          JS    0               0            
+          PB     .8              .8          
+        PBSW     .8              .8          
+          CJ    0               0            
+        CJSW    0               0            
+        CGSO    0               0            
+        CGDO    0               0            
+        CGBO    0               0            
+         TOX    0               0            
+          XJ    0               0            
+       UCRIT   10.000000E+03   10.000000E+03 
+      DIOMOD    1               1            
+         VFB    0               0            
+        LETA    0               0            
+        WETA    0               0            
+          U0    0               0            
+        TEMP    0               0            
+         VDD    5               5            
+       XPART    0               0            
+
+
+**** 02/24/15 00:03:46 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\pwmchange.sim ] 
+
+
+ ****     Resistor MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_D1.MDR        X_D1.MDRBRK_SIg 
+           R    1               1            
+         TC1                 -369.340000E-06 
+
+
+**** 02/24/15 00:03:46 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\pwmchange.sim ] 
+
+
+ ****     Voltage Controlled Switch MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U6.Smod       X_U7.Smod       
+         RON     .01             .01         
+        ROFF    1.000000E+06    1.000000E+06 
+         VON    1               1            
+        VOFF    0               0            
+
+
+Model-Specific Temperatures During Sweep  Param value = 0
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+**** 02/24/15 00:03:46 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\pwmchange.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM D =    0     
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    1.8000  ( PWM1) 14.83E-15      
+
+(N14704) 8.647E-09 (N27021)     .0369 (N27580) 14.83E-09 (N28782) 19.84E-09     
+
+(N33036)     .0369 (N42822)    4.9257 (N45179)     .6408 (X_D1.3)     .6408     
+
+(X_D1.4)     .2788 (X_D1.5)   -2.4109 (X_D1.6)    2.4109 (X_U6.3)    1.0000     
+
+(X_U7.3)    0.0000 (X_X1.4)    1.8000 (X_X1.5)     .6408 (X_X1.6) 8.647E-09     
+
+(X_X1.7)    1.8000 (X_X1.8) 8.656E-09 (X_X1.9) 8.660E-09 (X_U5A.4)    2.7319    
+
+(X_U5A.5)     .1533                   (X_U5A.6)     .1103                       
+
+(X_U5A.7)     .0427                   (X_U5A.8)    4.2790                       
+
+(X_U5A.9)    4.9718                   (X_U8A.4)    2.7323                       
+
+(X_U8A.5)     .1161                   (X_U8A.6)     .1475                       
+
+(X_U8A.7)     .0058                   (X_U8A.8)    4.2790                       
+
+(X_U8A.9)     .0364                   (X_X1.10)    1.8000                       
+
+(X_X1.11)     .6408                   (X_X1.12) 8.664E-09                       
+
+(X_U5A.10)     .7210                  (X_U5A.11)    4.9718                      
+
+(X_U5A.12)    -.6360                  (X_U5A.13)    -.6360                      
+
+(X_U5A.14)    -.6360                  (X_U5A.15)    4.9718                      
+
+(X_U5A.16)    2.4998                  (X_U5A.17)    2.4998                      
+
+(X_U5A.19)    4.9718                  (X_U5A.20)    5.5557                      
+
+(X_U5A.21)    4.2957                  (X_U5A.22)    4.9257                      
+
+(X_U5A.23)    4.9718                  (X_U5A.24)    4.9759                      
+
+(X_U5A.25)    4.9345                  (X_U5A.26)    5.5557                      
+
+(X_U5A.27)    4.2957                  (X_U5A.29)    5.5557                      
+
+(X_U5A.30)    4.2957                  (X_U5A.49)    2.5000                      
+
+(X_U5A.96)    0.0000                  (X_U5A.97)    5.0000                      
+
+(X_U5A.98)    2.5000                  (X_U8A.10)     .7210                      
+
+(X_U8A.11)     .0364                  (X_U8A.12)     .1878                      
+
+(X_U8A.13)     .1878                  (X_U8A.14)     .1878                      
+
+(X_U8A.15)     .0364                  (X_U8A.16)    2.4998                      
+
+(X_U8A.17)    2.4998                  (X_U8A.19)     .0364                      
+
+(X_U8A.20)     .6669                  (X_U8A.21)    -.5931                      
+
+(X_U8A.22)     .0369                  (X_U8A.23)     .0364                      
+
+(X_U8A.24)     .0522                  (X_U8A.25)     .0217                      
+
+(X_U8A.26)     .6669                  (X_U8A.27)    -.5931                      
+
+(X_U8A.29)     .6669                  (X_U8A.30)    -.5931                      
+
+(X_U8A.49)    2.5000                  (X_U8A.96)    0.0000                      
+
+(X_U8A.97)    5.0000                  (X_U8A.98)    2.5000                      
+
+(X_X1.xcds.5)    1.8000               (X_X1.xcds.6) 4.288E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    1.8000               (X_X1.xcgd.6) 315.0E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.228E-03
+    V_Vss       -1.729E-08
+    V_V1         1.483E-12
+    X_U5A.VA1    4.778E-04
+    X_U5A.VA2    4.778E-04
+    X_U5A.VA3   -6.460E-13
+    X_U5A.V2    -4.296E-03
+    X_U5A.V3     4.261E-12
+    X_U5A.V4    -5.939E-13
+    X_U5A.V5    -6.861E-13
+    X_U5A.V6    -5.453E-05
+    X_U5A.V7    -5.323E-04
+    X_U6.V1     -1.000E-12
+    X_U7.V1      0.000E+00
+    X_U8A.VA1   -1.479E-11
+    X_U8A.VA2   -1.978E-13
+    X_U8A.VA3    1.440E-11
+    X_U8A.V2     4.253E-12
+    X_U8A.V3    -3.130E-03
+    X_U8A.V4    -6.405E-13
+    X_U8A.V5    -6.395E-13
+    X_U8A.V6    -2.102E-04
+    X_U8A.V7    -2.102E-04
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   1.21E-02  WATTS
+
+
+Model-Specific Temperatures During Sweep  Param value = 0.05
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+**** 02/24/15 00:03:46 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\pwmchange.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM D =     .05  
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    1.8000  ( PWM1) 14.83E-15      
+
+(N14704) 8.647E-09 (N27021)     .0369 (N27580) 14.83E-09 (N28782) 19.84E-09     
+
+(N33036)     .0369 (N42822)    4.9257 (N45179)     .6408 (X_D1.3)     .6408     
+
+(X_D1.4)     .2788 (X_D1.5)   -2.4109 (X_D1.6)    2.4109 (X_U6.3)    1.0000     
+
+(X_U7.3)    0.0000 (X_X1.4)    1.8000 (X_X1.5)     .6408 (X_X1.6) 8.647E-09     
+
+(X_X1.7)    1.8000 (X_X1.8) 8.656E-09 (X_X1.9) 8.660E-09 (X_U5A.4)    2.7319    
+
+(X_U5A.5)     .1533                   (X_U5A.6)     .1103                       
+
+(X_U5A.7)     .0427                   (X_U5A.8)    4.2790                       
+
+(X_U5A.9)    4.9718                   (X_U8A.4)    2.7323                       
+
+(X_U8A.5)     .1161                   (X_U8A.6)     .1475                       
+
+(X_U8A.7)     .0058                   (X_U8A.8)    4.2790                       
+
+(X_U8A.9)     .0364                   (X_X1.10)    1.8000                       
+
+(X_X1.11)     .6408                   (X_X1.12) 8.664E-09                       
+
+(X_U5A.10)     .7210                  (X_U5A.11)    4.9718                      
+
+(X_U5A.12)    -.6360                  (X_U5A.13)    -.6360                      
+
+(X_U5A.14)    -.6360                  (X_U5A.15)    4.9718                      
+
+(X_U5A.16)    2.4998                  (X_U5A.17)    2.4998                      
+
+(X_U5A.19)    4.9718                  (X_U5A.20)    5.5557                      
+
+(X_U5A.21)    4.2957                  (X_U5A.22)    4.9257                      
+
+(X_U5A.23)    4.9718                  (X_U5A.24)    4.9759                      
+
+(X_U5A.25)    4.9345                  (X_U5A.26)    5.5557                      
+
+(X_U5A.27)    4.2957                  (X_U5A.29)    5.5557                      
+
+(X_U5A.30)    4.2957                  (X_U5A.49)    2.5000                      
+
+(X_U5A.96)    0.0000                  (X_U5A.97)    5.0000                      
+
+(X_U5A.98)    2.5000                  (X_U8A.10)     .7210                      
+
+(X_U8A.11)     .0364                  (X_U8A.12)     .1878                      
+
+(X_U8A.13)     .1878                  (X_U8A.14)     .1878                      
+
+(X_U8A.15)     .0364                  (X_U8A.16)    2.4998                      
+
+(X_U8A.17)    2.4998                  (X_U8A.19)     .0364                      
+
+(X_U8A.20)     .6669                  (X_U8A.21)    -.5931                      
+
+(X_U8A.22)     .0369                  (X_U8A.23)     .0364                      
+
+(X_U8A.24)     .0522                  (X_U8A.25)     .0217                      
+
+(X_U8A.26)     .6669                  (X_U8A.27)    -.5931                      
+
+(X_U8A.29)     .6669                  (X_U8A.30)    -.5931                      
+
+(X_U8A.49)    2.5000                  (X_U8A.96)    0.0000                      
+
+(X_U8A.97)    5.0000                  (X_U8A.98)    2.5000                      
+
+(X_X1.xcds.5)    1.8000               (X_X1.xcds.6) 4.288E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    1.8000               (X_X1.xcgd.6) 315.0E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.228E-03
+    V_Vss       -1.729E-08
+    V_V1         1.483E-12
+    X_U5A.VA1    4.778E-04
+    X_U5A.VA2    4.778E-04
+    X_U5A.VA3   -6.460E-13
+    X_U5A.V2    -4.296E-03
+    X_U5A.V3     4.261E-12
+    X_U5A.V4    -5.939E-13
+    X_U5A.V5    -6.861E-13
+    X_U5A.V6    -5.453E-05
+    X_U5A.V7    -5.323E-04
+    X_U6.V1     -1.000E-12
+    X_U7.V1      0.000E+00
+    X_U8A.VA1   -1.479E-11
+    X_U8A.VA2   -1.978E-13
+    X_U8A.VA3    1.440E-11
+    X_U8A.V2     4.253E-12
+    X_U8A.V3    -3.130E-03
+    X_U8A.V4    -6.405E-13
+    X_U8A.V5    -6.395E-13
+    X_U8A.V6    -2.102E-04
+    X_U8A.V7    -2.102E-04
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   1.21E-02  WATTS
+
+
+Model-Specific Temperatures During Sweep  Param value = 0.1
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+**** 02/24/15 00:03:46 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\pwmchange.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM D =     .1   
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    1.8000  ( PWM1) 14.83E-15      
+
+(N14704) 8.647E-09 (N27021)     .0369 (N27580) 14.83E-09 (N28782) 19.84E-09     
+
+(N33036)     .0369 (N42822)    4.9257 (N45179)     .6408 (X_D1.3)     .6408     
+
+(X_D1.4)     .2788 (X_D1.5)   -2.4109 (X_D1.6)    2.4109 (X_U6.3)    1.0000     
+
+(X_U7.3)    0.0000 (X_X1.4)    1.8000 (X_X1.5)     .6408 (X_X1.6) 8.647E-09     
+
+(X_X1.7)    1.8000 (X_X1.8) 8.656E-09 (X_X1.9) 8.660E-09 (X_U5A.4)    2.7319    
+
+(X_U5A.5)     .1533                   (X_U5A.6)     .1103                       
+
+(X_U5A.7)     .0427                   (X_U5A.8)    4.2790                       
+
+(X_U5A.9)    4.9718                   (X_U8A.4)    2.7323                       
+
+(X_U8A.5)     .1161                   (X_U8A.6)     .1475                       
+
+(X_U8A.7)     .0058                   (X_U8A.8)    4.2790                       
+
+(X_U8A.9)     .0364                   (X_X1.10)    1.8000                       
+
+(X_X1.11)     .6408                   (X_X1.12) 8.664E-09                       
+
+(X_U5A.10)     .7210                  (X_U5A.11)    4.9718                      
+
+(X_U5A.12)    -.6360                  (X_U5A.13)    -.6360                      
+
+(X_U5A.14)    -.6360                  (X_U5A.15)    4.9718                      
+
+(X_U5A.16)    2.4998                  (X_U5A.17)    2.4998                      
+
+(X_U5A.19)    4.9718                  (X_U5A.20)    5.5557                      
+
+(X_U5A.21)    4.2957                  (X_U5A.22)    4.9257                      
+
+(X_U5A.23)    4.9718                  (X_U5A.24)    4.9759                      
+
+(X_U5A.25)    4.9345                  (X_U5A.26)    5.5557                      
+
+(X_U5A.27)    4.2957                  (X_U5A.29)    5.5557                      
+
+(X_U5A.30)    4.2957                  (X_U5A.49)    2.5000                      
+
+(X_U5A.96)    0.0000                  (X_U5A.97)    5.0000                      
+
+(X_U5A.98)    2.5000                  (X_U8A.10)     .7210                      
+
+(X_U8A.11)     .0364                  (X_U8A.12)     .1878                      
+
+(X_U8A.13)     .1878                  (X_U8A.14)     .1878                      
+
+(X_U8A.15)     .0364                  (X_U8A.16)    2.4998                      
+
+(X_U8A.17)    2.4998                  (X_U8A.19)     .0364                      
+
+(X_U8A.20)     .6669                  (X_U8A.21)    -.5931                      
+
+(X_U8A.22)     .0369                  (X_U8A.23)     .0364                      
+
+(X_U8A.24)     .0522                  (X_U8A.25)     .0217                      
+
+(X_U8A.26)     .6669                  (X_U8A.27)    -.5931                      
+
+(X_U8A.29)     .6669                  (X_U8A.30)    -.5931                      
+
+(X_U8A.49)    2.5000                  (X_U8A.96)    0.0000                      
+
+(X_U8A.97)    5.0000                  (X_U8A.98)    2.5000                      
+
+(X_X1.xcds.5)    1.8000               (X_X1.xcds.6) 4.288E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    1.8000               (X_X1.xcgd.6) 315.0E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.228E-03
+    V_Vss       -1.729E-08
+    V_V1         1.483E-12
+    X_U5A.VA1    4.778E-04
+    X_U5A.VA2    4.778E-04
+    X_U5A.VA3   -6.460E-13
+    X_U5A.V2    -4.296E-03
+    X_U5A.V3     4.261E-12
+    X_U5A.V4    -5.939E-13
+    X_U5A.V5    -6.861E-13
+    X_U5A.V6    -5.453E-05
+    X_U5A.V7    -5.323E-04
+    X_U6.V1     -1.000E-12
+    X_U7.V1      0.000E+00
+    X_U8A.VA1   -1.479E-11
+    X_U8A.VA2   -1.978E-13
+    X_U8A.VA3    1.440E-11
+    X_U8A.V2     4.253E-12
+    X_U8A.V3    -3.130E-03
+    X_U8A.V4    -6.405E-13
+    X_U8A.V5    -6.395E-13
+    X_U8A.V6    -2.102E-04
+    X_U8A.V7    -2.102E-04
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   1.21E-02  WATTS
+
+
+Model-Specific Temperatures During Sweep  Param value = 0.2
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+**** 02/24/15 00:03:46 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\pwmchange.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM D =     .2   
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    1.8000  ( PWM1) 14.83E-15      
+
+(N14704) 8.647E-09 (N27021)     .0369 (N27580) 14.83E-09 (N28782) 19.84E-09     
+
+(N33036)     .0369 (N42822)    4.9257 (N45179)     .6408 (X_D1.3)     .6408     
+
+(X_D1.4)     .2788 (X_D1.5)   -2.4109 (X_D1.6)    2.4109 (X_U6.3)    1.0000     
+
+(X_U7.3)    0.0000 (X_X1.4)    1.8000 (X_X1.5)     .6408 (X_X1.6) 8.647E-09     
+
+(X_X1.7)    1.8000 (X_X1.8) 8.656E-09 (X_X1.9) 8.660E-09 (X_U5A.4)    2.7319    
+
+(X_U5A.5)     .1533                   (X_U5A.6)     .1103                       
+
+(X_U5A.7)     .0427                   (X_U5A.8)    4.2790                       
+
+(X_U5A.9)    4.9718                   (X_U8A.4)    2.7323                       
+
+(X_U8A.5)     .1161                   (X_U8A.6)     .1475                       
+
+(X_U8A.7)     .0058                   (X_U8A.8)    4.2790                       
+
+(X_U8A.9)     .0364                   (X_X1.10)    1.8000                       
+
+(X_X1.11)     .6408                   (X_X1.12) 8.664E-09                       
+
+(X_U5A.10)     .7210                  (X_U5A.11)    4.9718                      
+
+(X_U5A.12)    -.6360                  (X_U5A.13)    -.6360                      
+
+(X_U5A.14)    -.6360                  (X_U5A.15)    4.9718                      
+
+(X_U5A.16)    2.4998                  (X_U5A.17)    2.4998                      
+
+(X_U5A.19)    4.9718                  (X_U5A.20)    5.5557                      
+
+(X_U5A.21)    4.2957                  (X_U5A.22)    4.9257                      
+
+(X_U5A.23)    4.9718                  (X_U5A.24)    4.9759                      
+
+(X_U5A.25)    4.9345                  (X_U5A.26)    5.5557                      
+
+(X_U5A.27)    4.2957                  (X_U5A.29)    5.5557                      
+
+(X_U5A.30)    4.2957                  (X_U5A.49)    2.5000                      
+
+(X_U5A.96)    0.0000                  (X_U5A.97)    5.0000                      
+
+(X_U5A.98)    2.5000                  (X_U8A.10)     .7210                      
+
+(X_U8A.11)     .0364                  (X_U8A.12)     .1878                      
+
+(X_U8A.13)     .1878                  (X_U8A.14)     .1878                      
+
+(X_U8A.15)     .0364                  (X_U8A.16)    2.4998                      
+
+(X_U8A.17)    2.4998                  (X_U8A.19)     .0364                      
+
+(X_U8A.20)     .6669                  (X_U8A.21)    -.5931                      
+
+(X_U8A.22)     .0369                  (X_U8A.23)     .0364                      
+
+(X_U8A.24)     .0522                  (X_U8A.25)     .0217                      
+
+(X_U8A.26)     .6669                  (X_U8A.27)    -.5931                      
+
+(X_U8A.29)     .6669                  (X_U8A.30)    -.5931                      
+
+(X_U8A.49)    2.5000                  (X_U8A.96)    0.0000                      
+
+(X_U8A.97)    5.0000                  (X_U8A.98)    2.5000                      
+
+(X_X1.xcds.5)    1.8000               (X_X1.xcds.6) 4.288E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    1.8000               (X_X1.xcgd.6) 315.0E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.228E-03
+    V_Vss       -1.729E-08
+    V_V1         1.483E-12
+    X_U5A.VA1    4.778E-04
+    X_U5A.VA2    4.778E-04
+    X_U5A.VA3   -6.460E-13
+    X_U5A.V2    -4.296E-03
+    X_U5A.V3     4.261E-12
+    X_U5A.V4    -5.939E-13
+    X_U5A.V5    -6.861E-13
+    X_U5A.V6    -5.453E-05
+    X_U5A.V7    -5.323E-04
+    X_U6.V1     -1.000E-12
+    X_U7.V1      0.000E+00
+    X_U8A.VA1   -1.479E-11
+    X_U8A.VA2   -1.978E-13
+    X_U8A.VA3    1.440E-11
+    X_U8A.V2     4.253E-12
+    X_U8A.V3    -3.130E-03
+    X_U8A.V4    -6.405E-13
+    X_U8A.V5    -6.395E-13
+    X_U8A.V6    -2.102E-04
+    X_U8A.V7    -2.102E-04
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   1.21E-02  WATTS
+
+
+Model-Specific Temperatures During Sweep  Param value = 0.3
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+**** 02/24/15 00:03:46 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\pwmchange.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM D =     .3   
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    1.8000  ( PWM1) 14.83E-15      
+
+(N14704) 8.647E-09 (N27021)     .0369 (N27580) 14.83E-09 (N28782) 19.84E-09     
+
+(N33036)     .0369 (N42822)    4.9257 (N45179)     .6408 (X_D1.3)     .6408     
+
+(X_D1.4)     .2788 (X_D1.5)   -2.4109 (X_D1.6)    2.4109 (X_U6.3)    1.0000     
+
+(X_U7.3)    0.0000 (X_X1.4)    1.8000 (X_X1.5)     .6408 (X_X1.6) 8.647E-09     
+
+(X_X1.7)    1.8000 (X_X1.8) 8.656E-09 (X_X1.9) 8.660E-09 (X_U5A.4)    2.7319    
+
+(X_U5A.5)     .1533                   (X_U5A.6)     .1103                       
+
+(X_U5A.7)     .0427                   (X_U5A.8)    4.2790                       
+
+(X_U5A.9)    4.9718                   (X_U8A.4)    2.7323                       
+
+(X_U8A.5)     .1161                   (X_U8A.6)     .1475                       
+
+(X_U8A.7)     .0058                   (X_U8A.8)    4.2790                       
+
+(X_U8A.9)     .0364                   (X_X1.10)    1.8000                       
+
+(X_X1.11)     .6408                   (X_X1.12) 8.664E-09                       
+
+(X_U5A.10)     .7210                  (X_U5A.11)    4.9718                      
+
+(X_U5A.12)    -.6360                  (X_U5A.13)    -.6360                      
+
+(X_U5A.14)    -.6360                  (X_U5A.15)    4.9718                      
+
+(X_U5A.16)    2.4998                  (X_U5A.17)    2.4998                      
+
+(X_U5A.19)    4.9718                  (X_U5A.20)    5.5557                      
+
+(X_U5A.21)    4.2957                  (X_U5A.22)    4.9257                      
+
+(X_U5A.23)    4.9718                  (X_U5A.24)    4.9759                      
+
+(X_U5A.25)    4.9345                  (X_U5A.26)    5.5557                      
+
+(X_U5A.27)    4.2957                  (X_U5A.29)    5.5557                      
+
+(X_U5A.30)    4.2957                  (X_U5A.49)    2.5000                      
+
+(X_U5A.96)    0.0000                  (X_U5A.97)    5.0000                      
+
+(X_U5A.98)    2.5000                  (X_U8A.10)     .7210                      
+
+(X_U8A.11)     .0364                  (X_U8A.12)     .1878                      
+
+(X_U8A.13)     .1878                  (X_U8A.14)     .1878                      
+
+(X_U8A.15)     .0364                  (X_U8A.16)    2.4998                      
+
+(X_U8A.17)    2.4998                  (X_U8A.19)     .0364                      
+
+(X_U8A.20)     .6669                  (X_U8A.21)    -.5931                      
+
+(X_U8A.22)     .0369                  (X_U8A.23)     .0364                      
+
+(X_U8A.24)     .0522                  (X_U8A.25)     .0217                      
+
+(X_U8A.26)     .6669                  (X_U8A.27)    -.5931                      
+
+(X_U8A.29)     .6669                  (X_U8A.30)    -.5931                      
+
+(X_U8A.49)    2.5000                  (X_U8A.96)    0.0000                      
+
+(X_U8A.97)    5.0000                  (X_U8A.98)    2.5000                      
+
+(X_X1.xcds.5)    1.8000               (X_X1.xcds.6) 4.288E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    1.8000               (X_X1.xcgd.6) 315.0E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.228E-03
+    V_Vss       -1.729E-08
+    V_V1         1.483E-12
+    X_U5A.VA1    4.778E-04
+    X_U5A.VA2    4.778E-04
+    X_U5A.VA3   -6.460E-13
+    X_U5A.V2    -4.296E-03
+    X_U5A.V3     4.261E-12
+    X_U5A.V4    -5.939E-13
+    X_U5A.V5    -6.861E-13
+    X_U5A.V6    -5.453E-05
+    X_U5A.V7    -5.323E-04
+    X_U6.V1     -1.000E-12
+    X_U7.V1      0.000E+00
+    X_U8A.VA1   -1.479E-11
+    X_U8A.VA2   -1.978E-13
+    X_U8A.VA3    1.440E-11
+    X_U8A.V2     4.253E-12
+    X_U8A.V3    -3.130E-03
+    X_U8A.V4    -6.405E-13
+    X_U8A.V5    -6.395E-13
+    X_U8A.V6    -2.102E-04
+    X_U8A.V7    -2.102E-04
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   1.21E-02  WATTS
+
+
+Model-Specific Temperatures During Sweep  Param value = 0.4
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+**** 02/24/15 00:03:46 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\pwmchange.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM D =     .4   
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    1.8000  ( PWM1) 14.83E-15      
+
+(N14704) 8.647E-09 (N27021)     .0369 (N27580) 14.83E-09 (N28782) 19.84E-09     
+
+(N33036)     .0369 (N42822)    4.9257 (N45179)     .6408 (X_D1.3)     .6408     
+
+(X_D1.4)     .2788 (X_D1.5)   -2.4109 (X_D1.6)    2.4109 (X_U6.3)    1.0000     
+
+(X_U7.3)    0.0000 (X_X1.4)    1.8000 (X_X1.5)     .6408 (X_X1.6) 8.647E-09     
+
+(X_X1.7)    1.8000 (X_X1.8) 8.656E-09 (X_X1.9) 8.660E-09 (X_U5A.4)    2.7319    
+
+(X_U5A.5)     .1533                   (X_U5A.6)     .1103                       
+
+(X_U5A.7)     .0427                   (X_U5A.8)    4.2790                       
+
+(X_U5A.9)    4.9718                   (X_U8A.4)    2.7323                       
+
+(X_U8A.5)     .1161                   (X_U8A.6)     .1475                       
+
+(X_U8A.7)     .0058                   (X_U8A.8)    4.2790                       
+
+(X_U8A.9)     .0364                   (X_X1.10)    1.8000                       
+
+(X_X1.11)     .6408                   (X_X1.12) 8.664E-09                       
+
+(X_U5A.10)     .7210                  (X_U5A.11)    4.9718                      
+
+(X_U5A.12)    -.6360                  (X_U5A.13)    -.6360                      
+
+(X_U5A.14)    -.6360                  (X_U5A.15)    4.9718                      
+
+(X_U5A.16)    2.4998                  (X_U5A.17)    2.4998                      
+
+(X_U5A.19)    4.9718                  (X_U5A.20)    5.5557                      
+
+(X_U5A.21)    4.2957                  (X_U5A.22)    4.9257                      
+
+(X_U5A.23)    4.9718                  (X_U5A.24)    4.9759                      
+
+(X_U5A.25)    4.9345                  (X_U5A.26)    5.5557                      
+
+(X_U5A.27)    4.2957                  (X_U5A.29)    5.5557                      
+
+(X_U5A.30)    4.2957                  (X_U5A.49)    2.5000                      
+
+(X_U5A.96)    0.0000                  (X_U5A.97)    5.0000                      
+
+(X_U5A.98)    2.5000                  (X_U8A.10)     .7210                      
+
+(X_U8A.11)     .0364                  (X_U8A.12)     .1878                      
+
+(X_U8A.13)     .1878                  (X_U8A.14)     .1878                      
+
+(X_U8A.15)     .0364                  (X_U8A.16)    2.4998                      
+
+(X_U8A.17)    2.4998                  (X_U8A.19)     .0364                      
+
+(X_U8A.20)     .6669                  (X_U8A.21)    -.5931                      
+
+(X_U8A.22)     .0369                  (X_U8A.23)     .0364                      
+
+(X_U8A.24)     .0522                  (X_U8A.25)     .0217                      
+
+(X_U8A.26)     .6669                  (X_U8A.27)    -.5931                      
+
+(X_U8A.29)     .6669                  (X_U8A.30)    -.5931                      
+
+(X_U8A.49)    2.5000                  (X_U8A.96)    0.0000                      
+
+(X_U8A.97)    5.0000                  (X_U8A.98)    2.5000                      
+
+(X_X1.xcds.5)    1.8000               (X_X1.xcds.6) 4.288E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    1.8000               (X_X1.xcgd.6) 315.0E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.228E-03
+    V_Vss       -1.729E-08
+    V_V1         1.483E-12
+    X_U5A.VA1    4.778E-04
+    X_U5A.VA2    4.778E-04
+    X_U5A.VA3   -6.460E-13
+    X_U5A.V2    -4.296E-03
+    X_U5A.V3     4.261E-12
+    X_U5A.V4    -5.939E-13
+    X_U5A.V5    -6.861E-13
+    X_U5A.V6    -5.453E-05
+    X_U5A.V7    -5.323E-04
+    X_U6.V1     -1.000E-12
+    X_U7.V1      0.000E+00
+    X_U8A.VA1   -1.479E-11
+    X_U8A.VA2   -1.978E-13
+    X_U8A.VA3    1.440E-11
+    X_U8A.V2     4.253E-12
+    X_U8A.V3    -3.130E-03
+    X_U8A.V4    -6.405E-13
+    X_U8A.V5    -6.395E-13
+    X_U8A.V6    -2.102E-04
+    X_U8A.V7    -2.102E-04
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   1.21E-02  WATTS
+
+
+Model-Specific Temperatures During Sweep  Param value = 0.5
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+**** 02/24/15 00:03:46 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\pwmchange.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM D =     .5   
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    1.8000  ( PWM1) 14.83E-15      
+
+(N14704) 8.647E-09 (N27021)     .0369 (N27580) 14.83E-09 (N28782) 19.84E-09     
+
+(N33036)     .0369 (N42822)    4.9257 (N45179)     .6408 (X_D1.3)     .6408     
+
+(X_D1.4)     .2788 (X_D1.5)   -2.4109 (X_D1.6)    2.4109 (X_U6.3)    1.0000     
+
+(X_U7.3)    0.0000 (X_X1.4)    1.8000 (X_X1.5)     .6408 (X_X1.6) 8.647E-09     
+
+(X_X1.7)    1.8000 (X_X1.8) 8.656E-09 (X_X1.9) 8.660E-09 (X_U5A.4)    2.7319    
+
+(X_U5A.5)     .1533                   (X_U5A.6)     .1103                       
+
+(X_U5A.7)     .0427                   (X_U5A.8)    4.2790                       
+
+(X_U5A.9)    4.9718                   (X_U8A.4)    2.7323                       
+
+(X_U8A.5)     .1161                   (X_U8A.6)     .1475                       
+
+(X_U8A.7)     .0058                   (X_U8A.8)    4.2790                       
+
+(X_U8A.9)     .0364                   (X_X1.10)    1.8000                       
+
+(X_X1.11)     .6408                   (X_X1.12) 8.664E-09                       
+
+(X_U5A.10)     .7210                  (X_U5A.11)    4.9718                      
+
+(X_U5A.12)    -.6360                  (X_U5A.13)    -.6360                      
+
+(X_U5A.14)    -.6360                  (X_U5A.15)    4.9718                      
+
+(X_U5A.16)    2.4998                  (X_U5A.17)    2.4998                      
+
+(X_U5A.19)    4.9718                  (X_U5A.20)    5.5557                      
+
+(X_U5A.21)    4.2957                  (X_U5A.22)    4.9257                      
+
+(X_U5A.23)    4.9718                  (X_U5A.24)    4.9759                      
+
+(X_U5A.25)    4.9345                  (X_U5A.26)    5.5557                      
+
+(X_U5A.27)    4.2957                  (X_U5A.29)    5.5557                      
+
+(X_U5A.30)    4.2957                  (X_U5A.49)    2.5000                      
+
+(X_U5A.96)    0.0000                  (X_U5A.97)    5.0000                      
+
+(X_U5A.98)    2.5000                  (X_U8A.10)     .7210                      
+
+(X_U8A.11)     .0364                  (X_U8A.12)     .1878                      
+
+(X_U8A.13)     .1878                  (X_U8A.14)     .1878                      
+
+(X_U8A.15)     .0364                  (X_U8A.16)    2.4998                      
+
+(X_U8A.17)    2.4998                  (X_U8A.19)     .0364                      
+
+(X_U8A.20)     .6669                  (X_U8A.21)    -.5931                      
+
+(X_U8A.22)     .0369                  (X_U8A.23)     .0364                      
+
+(X_U8A.24)     .0522                  (X_U8A.25)     .0217                      
+
+(X_U8A.26)     .6669                  (X_U8A.27)    -.5931                      
+
+(X_U8A.29)     .6669                  (X_U8A.30)    -.5931                      
+
+(X_U8A.49)    2.5000                  (X_U8A.96)    0.0000                      
+
+(X_U8A.97)    5.0000                  (X_U8A.98)    2.5000                      
+
+(X_X1.xcds.5)    1.8000               (X_X1.xcds.6) 4.288E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    1.8000               (X_X1.xcgd.6) 315.0E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.228E-03
+    V_Vss       -1.729E-08
+    V_V1         1.483E-12
+    X_U5A.VA1    4.778E-04
+    X_U5A.VA2    4.778E-04
+    X_U5A.VA3   -6.460E-13
+    X_U5A.V2    -4.296E-03
+    X_U5A.V3     4.261E-12
+    X_U5A.V4    -5.939E-13
+    X_U5A.V5    -6.861E-13
+    X_U5A.V6    -5.453E-05
+    X_U5A.V7    -5.323E-04
+    X_U6.V1     -1.000E-12
+    X_U7.V1      0.000E+00
+    X_U8A.VA1   -1.479E-11
+    X_U8A.VA2   -1.978E-13
+    X_U8A.VA3    1.440E-11
+    X_U8A.V2     4.253E-12
+    X_U8A.V3    -3.130E-03
+    X_U8A.V4    -6.405E-13
+    X_U8A.V5    -6.395E-13
+    X_U8A.V6    -2.102E-04
+    X_U8A.V7    -2.102E-04
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   1.21E-02  WATTS
+
+
+Model-Specific Temperatures During Sweep  Param value = 0.6
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+**** 02/24/15 00:03:46 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\pwmchange.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM D =     .6   
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    1.8000  ( PWM1) 14.83E-15      
+
+(N14704) 8.647E-09 (N27021)     .0369 (N27580) 14.83E-09 (N28782) 19.84E-09     
+
+(N33036)     .0369 (N42822)    4.9257 (N45179)     .6408 (X_D1.3)     .6408     
+
+(X_D1.4)     .2788 (X_D1.5)   -2.4109 (X_D1.6)    2.4109 (X_U6.3)    1.0000     
+
+(X_U7.3)    0.0000 (X_X1.4)    1.8000 (X_X1.5)     .6408 (X_X1.6) 8.647E-09     
+
+(X_X1.7)    1.8000 (X_X1.8) 8.656E-09 (X_X1.9) 8.660E-09 (X_U5A.4)    2.7319    
+
+(X_U5A.5)     .1533                   (X_U5A.6)     .1103                       
+
+(X_U5A.7)     .0427                   (X_U5A.8)    4.2790                       
+
+(X_U5A.9)    4.9718                   (X_U8A.4)    2.7323                       
+
+(X_U8A.5)     .1161                   (X_U8A.6)     .1475                       
+
+(X_U8A.7)     .0058                   (X_U8A.8)    4.2790                       
+
+(X_U8A.9)     .0364                   (X_X1.10)    1.8000                       
+
+(X_X1.11)     .6408                   (X_X1.12) 8.664E-09                       
+
+(X_U5A.10)     .7210                  (X_U5A.11)    4.9718                      
+
+(X_U5A.12)    -.6360                  (X_U5A.13)    -.6360                      
+
+(X_U5A.14)    -.6360                  (X_U5A.15)    4.9718                      
+
+(X_U5A.16)    2.4998                  (X_U5A.17)    2.4998                      
+
+(X_U5A.19)    4.9718                  (X_U5A.20)    5.5557                      
+
+(X_U5A.21)    4.2957                  (X_U5A.22)    4.9257                      
+
+(X_U5A.23)    4.9718                  (X_U5A.24)    4.9759                      
+
+(X_U5A.25)    4.9345                  (X_U5A.26)    5.5557                      
+
+(X_U5A.27)    4.2957                  (X_U5A.29)    5.5557                      
+
+(X_U5A.30)    4.2957                  (X_U5A.49)    2.5000                      
+
+(X_U5A.96)    0.0000                  (X_U5A.97)    5.0000                      
+
+(X_U5A.98)    2.5000                  (X_U8A.10)     .7210                      
+
+(X_U8A.11)     .0364                  (X_U8A.12)     .1878                      
+
+(X_U8A.13)     .1878                  (X_U8A.14)     .1878                      
+
+(X_U8A.15)     .0364                  (X_U8A.16)    2.4998                      
+
+(X_U8A.17)    2.4998                  (X_U8A.19)     .0364                      
+
+(X_U8A.20)     .6669                  (X_U8A.21)    -.5931                      
+
+(X_U8A.22)     .0369                  (X_U8A.23)     .0364                      
+
+(X_U8A.24)     .0522                  (X_U8A.25)     .0217                      
+
+(X_U8A.26)     .6669                  (X_U8A.27)    -.5931                      
+
+(X_U8A.29)     .6669                  (X_U8A.30)    -.5931                      
+
+(X_U8A.49)    2.5000                  (X_U8A.96)    0.0000                      
+
+(X_U8A.97)    5.0000                  (X_U8A.98)    2.5000                      
+
+(X_X1.xcds.5)    1.8000               (X_X1.xcds.6) 4.288E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    1.8000               (X_X1.xcgd.6) 315.0E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.228E-03
+    V_Vss       -1.729E-08
+    V_V1         1.483E-12
+    X_U5A.VA1    4.778E-04
+    X_U5A.VA2    4.778E-04
+    X_U5A.VA3   -6.460E-13
+    X_U5A.V2    -4.296E-03
+    X_U5A.V3     4.261E-12
+    X_U5A.V4    -5.939E-13
+    X_U5A.V5    -6.861E-13
+    X_U5A.V6    -5.453E-05
+    X_U5A.V7    -5.323E-04
+    X_U6.V1     -1.000E-12
+    X_U7.V1      0.000E+00
+    X_U8A.VA1   -1.479E-11
+    X_U8A.VA2   -1.978E-13
+    X_U8A.VA3    1.440E-11
+    X_U8A.V2     4.253E-12
+    X_U8A.V3    -3.130E-03
+    X_U8A.V4    -6.405E-13
+    X_U8A.V5    -6.395E-13
+    X_U8A.V6    -2.102E-04
+    X_U8A.V7    -2.102E-04
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   1.21E-02  WATTS
+
+
+Model-Specific Temperatures During Sweep  Param value = 0.7
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+**** 02/24/15 00:03:46 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\pwmchange.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM D =     .7   
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    1.8000  ( PWM1) 14.83E-15      
+
+(N14704) 8.647E-09 (N27021)     .0369 (N27580) 14.83E-09 (N28782) 19.84E-09     
+
+(N33036)     .0369 (N42822)    4.9257 (N45179)     .6408 (X_D1.3)     .6408     
+
+(X_D1.4)     .2788 (X_D1.5)   -2.4109 (X_D1.6)    2.4109 (X_U6.3)    1.0000     
+
+(X_U7.3)    0.0000 (X_X1.4)    1.8000 (X_X1.5)     .6408 (X_X1.6) 8.647E-09     
+
+(X_X1.7)    1.8000 (X_X1.8) 8.656E-09 (X_X1.9) 8.660E-09 (X_U5A.4)    2.7319    
+
+(X_U5A.5)     .1533                   (X_U5A.6)     .1103                       
+
+(X_U5A.7)     .0427                   (X_U5A.8)    4.2790                       
+
+(X_U5A.9)    4.9718                   (X_U8A.4)    2.7323                       
+
+(X_U8A.5)     .1161                   (X_U8A.6)     .1475                       
+
+(X_U8A.7)     .0058                   (X_U8A.8)    4.2790                       
+
+(X_U8A.9)     .0364                   (X_X1.10)    1.8000                       
+
+(X_X1.11)     .6408                   (X_X1.12) 8.664E-09                       
+
+(X_U5A.10)     .7210                  (X_U5A.11)    4.9718                      
+
+(X_U5A.12)    -.6360                  (X_U5A.13)    -.6360                      
+
+(X_U5A.14)    -.6360                  (X_U5A.15)    4.9718                      
+
+(X_U5A.16)    2.4998                  (X_U5A.17)    2.4998                      
+
+(X_U5A.19)    4.9718                  (X_U5A.20)    5.5557                      
+
+(X_U5A.21)    4.2957                  (X_U5A.22)    4.9257                      
+
+(X_U5A.23)    4.9718                  (X_U5A.24)    4.9759                      
+
+(X_U5A.25)    4.9345                  (X_U5A.26)    5.5557                      
+
+(X_U5A.27)    4.2957                  (X_U5A.29)    5.5557                      
+
+(X_U5A.30)    4.2957                  (X_U5A.49)    2.5000                      
+
+(X_U5A.96)    0.0000                  (X_U5A.97)    5.0000                      
+
+(X_U5A.98)    2.5000                  (X_U8A.10)     .7210                      
+
+(X_U8A.11)     .0364                  (X_U8A.12)     .1878                      
+
+(X_U8A.13)     .1878                  (X_U8A.14)     .1878                      
+
+(X_U8A.15)     .0364                  (X_U8A.16)    2.4998                      
+
+(X_U8A.17)    2.4998                  (X_U8A.19)     .0364                      
+
+(X_U8A.20)     .6669                  (X_U8A.21)    -.5931                      
+
+(X_U8A.22)     .0369                  (X_U8A.23)     .0364                      
+
+(X_U8A.24)     .0522                  (X_U8A.25)     .0217                      
+
+(X_U8A.26)     .6669                  (X_U8A.27)    -.5931                      
+
+(X_U8A.29)     .6669                  (X_U8A.30)    -.5931                      
+
+(X_U8A.49)    2.5000                  (X_U8A.96)    0.0000                      
+
+(X_U8A.97)    5.0000                  (X_U8A.98)    2.5000                      
+
+(X_X1.xcds.5)    1.8000               (X_X1.xcds.6) 4.288E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    1.8000               (X_X1.xcgd.6) 315.0E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.228E-03
+    V_Vss       -1.729E-08
+    V_V1         1.483E-12
+    X_U5A.VA1    4.778E-04
+    X_U5A.VA2    4.778E-04
+    X_U5A.VA3   -6.460E-13
+    X_U5A.V2    -4.296E-03
+    X_U5A.V3     4.261E-12
+    X_U5A.V4    -5.939E-13
+    X_U5A.V5    -6.861E-13
+    X_U5A.V6    -5.453E-05
+    X_U5A.V7    -5.323E-04
+    X_U6.V1     -1.000E-12
+    X_U7.V1      0.000E+00
+    X_U8A.VA1   -1.479E-11
+    X_U8A.VA2   -1.978E-13
+    X_U8A.VA3    1.440E-11
+    X_U8A.V2     4.253E-12
+    X_U8A.V3    -3.130E-03
+    X_U8A.V4    -6.405E-13
+    X_U8A.V5    -6.395E-13
+    X_U8A.V6    -2.102E-04
+    X_U8A.V7    -2.102E-04
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   1.21E-02  WATTS
+
+
+Model-Specific Temperatures During Sweep  Param value = 0.8
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+**** 02/24/15 00:03:46 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\pwmchange.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM D =     .8   
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    1.8000  ( PWM1) 14.83E-15      
+
+(N14704) 8.647E-09 (N27021)     .0369 (N27580) 14.83E-09 (N28782) 19.84E-09     
+
+(N33036)     .0369 (N42822)    4.9257 (N45179)     .6408 (X_D1.3)     .6408     
+
+(X_D1.4)     .2788 (X_D1.5)   -2.4109 (X_D1.6)    2.4109 (X_U6.3)    1.0000     
+
+(X_U7.3)    0.0000 (X_X1.4)    1.8000 (X_X1.5)     .6408 (X_X1.6) 8.647E-09     
+
+(X_X1.7)    1.8000 (X_X1.8) 8.656E-09 (X_X1.9) 8.660E-09 (X_U5A.4)    2.7319    
+
+(X_U5A.5)     .1533                   (X_U5A.6)     .1103                       
+
+(X_U5A.7)     .0427                   (X_U5A.8)    4.2790                       
+
+(X_U5A.9)    4.9718                   (X_U8A.4)    2.7323                       
+
+(X_U8A.5)     .1161                   (X_U8A.6)     .1475                       
+
+(X_U8A.7)     .0058                   (X_U8A.8)    4.2790                       
+
+(X_U8A.9)     .0364                   (X_X1.10)    1.8000                       
+
+(X_X1.11)     .6408                   (X_X1.12) 8.664E-09                       
+
+(X_U5A.10)     .7210                  (X_U5A.11)    4.9718                      
+
+(X_U5A.12)    -.6360                  (X_U5A.13)    -.6360                      
+
+(X_U5A.14)    -.6360                  (X_U5A.15)    4.9718                      
+
+(X_U5A.16)    2.4998                  (X_U5A.17)    2.4998                      
+
+(X_U5A.19)    4.9718                  (X_U5A.20)    5.5557                      
+
+(X_U5A.21)    4.2957                  (X_U5A.22)    4.9257                      
+
+(X_U5A.23)    4.9718                  (X_U5A.24)    4.9759                      
+
+(X_U5A.25)    4.9345                  (X_U5A.26)    5.5557                      
+
+(X_U5A.27)    4.2957                  (X_U5A.29)    5.5557                      
+
+(X_U5A.30)    4.2957                  (X_U5A.49)    2.5000                      
+
+(X_U5A.96)    0.0000                  (X_U5A.97)    5.0000                      
+
+(X_U5A.98)    2.5000                  (X_U8A.10)     .7210                      
+
+(X_U8A.11)     .0364                  (X_U8A.12)     .1878                      
+
+(X_U8A.13)     .1878                  (X_U8A.14)     .1878                      
+
+(X_U8A.15)     .0364                  (X_U8A.16)    2.4998                      
+
+(X_U8A.17)    2.4998                  (X_U8A.19)     .0364                      
+
+(X_U8A.20)     .6669                  (X_U8A.21)    -.5931                      
+
+(X_U8A.22)     .0369                  (X_U8A.23)     .0364                      
+
+(X_U8A.24)     .0522                  (X_U8A.25)     .0217                      
+
+(X_U8A.26)     .6669                  (X_U8A.27)    -.5931                      
+
+(X_U8A.29)     .6669                  (X_U8A.30)    -.5931                      
+
+(X_U8A.49)    2.5000                  (X_U8A.96)    0.0000                      
+
+(X_U8A.97)    5.0000                  (X_U8A.98)    2.5000                      
+
+(X_X1.xcds.5)    1.8000               (X_X1.xcds.6) 4.288E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    1.8000               (X_X1.xcgd.6) 315.0E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.228E-03
+    V_Vss       -1.729E-08
+    V_V1         1.483E-12
+    X_U5A.VA1    4.778E-04
+    X_U5A.VA2    4.778E-04
+    X_U5A.VA3   -6.460E-13
+    X_U5A.V2    -4.296E-03
+    X_U5A.V3     4.261E-12
+    X_U5A.V4    -5.939E-13
+    X_U5A.V5    -6.861E-13
+    X_U5A.V6    -5.453E-05
+    X_U5A.V7    -5.323E-04
+    X_U6.V1     -1.000E-12
+    X_U7.V1      0.000E+00
+    X_U8A.VA1   -1.479E-11
+    X_U8A.VA2   -1.978E-13
+    X_U8A.VA3    1.440E-11
+    X_U8A.V2     4.253E-12
+    X_U8A.V3    -3.130E-03
+    X_U8A.V4    -6.405E-13
+    X_U8A.V5    -6.395E-13
+    X_U8A.V6    -2.102E-04
+    X_U8A.V7    -2.102E-04
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   1.21E-02  WATTS
+
+
+Model-Specific Temperatures During Sweep  Param value = 0.9
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+**** 02/24/15 00:03:46 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\pwmchange.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM D =     .9   
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    1.8000  ( PWM1) 14.83E-15      
+
+(N14704) 8.647E-09 (N27021)     .0369 (N27580) 14.83E-09 (N28782) 19.84E-09     
+
+(N33036)     .0369 (N42822)    4.9257 (N45179)     .6408 (X_D1.3)     .6408     
+
+(X_D1.4)     .2788 (X_D1.5)   -2.4109 (X_D1.6)    2.4109 (X_U6.3)    1.0000     
+
+(X_U7.3)    0.0000 (X_X1.4)    1.8000 (X_X1.5)     .6408 (X_X1.6) 8.647E-09     
+
+(X_X1.7)    1.8000 (X_X1.8) 8.656E-09 (X_X1.9) 8.660E-09 (X_U5A.4)    2.7319    
+
+(X_U5A.5)     .1533                   (X_U5A.6)     .1103                       
+
+(X_U5A.7)     .0427                   (X_U5A.8)    4.2790                       
+
+(X_U5A.9)    4.9718                   (X_U8A.4)    2.7323                       
+
+(X_U8A.5)     .1161                   (X_U8A.6)     .1475                       
+
+(X_U8A.7)     .0058                   (X_U8A.8)    4.2790                       
+
+(X_U8A.9)     .0364                   (X_X1.10)    1.8000                       
+
+(X_X1.11)     .6408                   (X_X1.12) 8.664E-09                       
+
+(X_U5A.10)     .7210                  (X_U5A.11)    4.9718                      
+
+(X_U5A.12)    -.6360                  (X_U5A.13)    -.6360                      
+
+(X_U5A.14)    -.6360                  (X_U5A.15)    4.9718                      
+
+(X_U5A.16)    2.4998                  (X_U5A.17)    2.4998                      
+
+(X_U5A.19)    4.9718                  (X_U5A.20)    5.5557                      
+
+(X_U5A.21)    4.2957                  (X_U5A.22)    4.9257                      
+
+(X_U5A.23)    4.9718                  (X_U5A.24)    4.9759                      
+
+(X_U5A.25)    4.9345                  (X_U5A.26)    5.5557                      
+
+(X_U5A.27)    4.2957                  (X_U5A.29)    5.5557                      
+
+(X_U5A.30)    4.2957                  (X_U5A.49)    2.5000                      
+
+(X_U5A.96)    0.0000                  (X_U5A.97)    5.0000                      
+
+(X_U5A.98)    2.5000                  (X_U8A.10)     .7210                      
+
+(X_U8A.11)     .0364                  (X_U8A.12)     .1878                      
+
+(X_U8A.13)     .1878                  (X_U8A.14)     .1878                      
+
+(X_U8A.15)     .0364                  (X_U8A.16)    2.4998                      
+
+(X_U8A.17)    2.4998                  (X_U8A.19)     .0364                      
+
+(X_U8A.20)     .6669                  (X_U8A.21)    -.5931                      
+
+(X_U8A.22)     .0369                  (X_U8A.23)     .0364                      
+
+(X_U8A.24)     .0522                  (X_U8A.25)     .0217                      
+
+(X_U8A.26)     .6669                  (X_U8A.27)    -.5931                      
+
+(X_U8A.29)     .6669                  (X_U8A.30)    -.5931                      
+
+(X_U8A.49)    2.5000                  (X_U8A.96)    0.0000                      
+
+(X_U8A.97)    5.0000                  (X_U8A.98)    2.5000                      
+
+(X_X1.xcds.5)    1.8000               (X_X1.xcds.6) 4.288E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    1.8000               (X_X1.xcgd.6) 315.0E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.228E-03
+    V_Vss       -1.729E-08
+    V_V1         1.483E-12
+    X_U5A.VA1    4.778E-04
+    X_U5A.VA2    4.778E-04
+    X_U5A.VA3   -6.460E-13
+    X_U5A.V2    -4.296E-03
+    X_U5A.V3     4.261E-12
+    X_U5A.V4    -5.939E-13
+    X_U5A.V5    -6.861E-13
+    X_U5A.V6    -5.453E-05
+    X_U5A.V7    -5.323E-04
+    X_U6.V1     -1.000E-12
+    X_U7.V1      0.000E+00
+    X_U8A.VA1   -1.479E-11
+    X_U8A.VA2   -1.978E-13
+    X_U8A.VA3    1.440E-11
+    X_U8A.V2     4.253E-12
+    X_U8A.V3    -3.130E-03
+    X_U8A.V4    -6.405E-13
+    X_U8A.V5    -6.395E-13
+    X_U8A.V6    -2.102E-04
+    X_U8A.V7    -2.102E-04
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   1.21E-02  WATTS
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+Model-Specific Temperatures During Sweep  Param value = 1
+
+ **** DIODE MODEL PARAMETERS
+
+               X_X1.DBD (T_Current 27 T_Measured 25)
+
+         IS        1.076E-11  
+         VJ        4.948E-01  
+        CJO        7.553E-15  
+         RS        1.260E-03  
+        IKF        0.000E+00  
+         BV        4.100E+01  
+
+
+ **** MOSFET MODEL PARAMETERS
+
+               X_X1.NMOS (T_Current 27 T_Measured 25)
+
+         UA        5.002E-10  
+         UB        4.995E-18  
+         UC       -4.688E-11  
+        VBX       -1.539E+00  
+     GAMMA1        2.380E+00  
+         K1        2.965E+00  
+         K2       -4.761E-01  
+       VTH0        2.532E+00  
+
+
+WARNING(ORPSIM-15452): Pulse Period < (Rise Time + Fall Time + Pulse Width) for V_V1.
+
+**** 02/24/15 00:03:46 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\pwmchange.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM D =    1     
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    5.0000  (  VSS)    1.8000  ( PWM1) 14.83E-15      
+
+(N14704) 8.647E-09 (N27021)     .0369 (N27580) 14.83E-09 (N28782) 19.84E-09     
+
+(N33036)     .0369 (N42822)    4.9257 (N45179)     .6408 (X_D1.3)     .6408     
+
+(X_D1.4)     .2788 (X_D1.5)   -2.4109 (X_D1.6)    2.4109 (X_U6.3)    1.0000     
+
+(X_U7.3)    0.0000 (X_X1.4)    1.8000 (X_X1.5)     .6408 (X_X1.6) 8.647E-09     
+
+(X_X1.7)    1.8000 (X_X1.8) 8.656E-09 (X_X1.9) 8.660E-09 (X_U5A.4)    2.7319    
+
+(X_U5A.5)     .1533                   (X_U5A.6)     .1103                       
+
+(X_U5A.7)     .0427                   (X_U5A.8)    4.2790                       
+
+(X_U5A.9)    4.9718                   (X_U8A.4)    2.7323                       
+
+(X_U8A.5)     .1161                   (X_U8A.6)     .1475                       
+
+(X_U8A.7)     .0058                   (X_U8A.8)    4.2790                       
+
+(X_U8A.9)     .0364                   (X_X1.10)    1.8000                       
+
+(X_X1.11)     .6408                   (X_X1.12) 8.664E-09                       
+
+(X_U5A.10)     .7210                  (X_U5A.11)    4.9718                      
+
+(X_U5A.12)    -.6360                  (X_U5A.13)    -.6360                      
+
+(X_U5A.14)    -.6360                  (X_U5A.15)    4.9718                      
+
+(X_U5A.16)    2.4998                  (X_U5A.17)    2.4998                      
+
+(X_U5A.19)    4.9718                  (X_U5A.20)    5.5557                      
+
+(X_U5A.21)    4.2957                  (X_U5A.22)    4.9257                      
+
+(X_U5A.23)    4.9718                  (X_U5A.24)    4.9759                      
+
+(X_U5A.25)    4.9345                  (X_U5A.26)    5.5557                      
+
+(X_U5A.27)    4.2957                  (X_U5A.29)    5.5557                      
+
+(X_U5A.30)    4.2957                  (X_U5A.49)    2.5000                      
+
+(X_U5A.96)    0.0000                  (X_U5A.97)    5.0000                      
+
+(X_U5A.98)    2.5000                  (X_U8A.10)     .7210                      
+
+(X_U8A.11)     .0364                  (X_U8A.12)     .1878                      
+
+(X_U8A.13)     .1878                  (X_U8A.14)     .1878                      
+
+(X_U8A.15)     .0364                  (X_U8A.16)    2.4998                      
+
+(X_U8A.17)    2.4998                  (X_U8A.19)     .0364                      
+
+(X_U8A.20)     .6669                  (X_U8A.21)    -.5931                      
+
+(X_U8A.22)     .0369                  (X_U8A.23)     .0364                      
+
+(X_U8A.24)     .0522                  (X_U8A.25)     .0217                      
+
+(X_U8A.26)     .6669                  (X_U8A.27)    -.5931                      
+
+(X_U8A.29)     .6669                  (X_U8A.30)    -.5931                      
+
+(X_U8A.49)    2.5000                  (X_U8A.96)    0.0000                      
+
+(X_U8A.97)    5.0000                  (X_U8A.98)    2.5000                      
+
+(X_X1.xcds.5)    1.8000               (X_X1.xcds.6) 4.288E-09                   
+
+(X_X1.xcds.7)    0.0000               (X_X1.xcds.8)    0.0000                   
+
+(X_X1.xcgd.5)    1.8000               (X_X1.xcgd.6) 315.0E-12                   
+
+(X_X1.xcgd.7)    0.0000               (X_X1.xcgd.8)    0.0000               
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vcc       -1.228E-03
+    V_Vss       -1.729E-08
+    V_V1         1.483E-12
+    X_U5A.VA1    4.778E-04
+    X_U5A.VA2    4.778E-04
+    X_U5A.VA3   -6.460E-13
+    X_U5A.V2    -4.296E-03
+    X_U5A.V3     4.261E-12
+    X_U5A.V4    -5.939E-13
+    X_U5A.V5    -6.861E-13
+    X_U5A.V6    -5.453E-05
+    X_U5A.V7    -5.323E-04
+    X_U6.V1     -1.000E-12
+    X_U7.V1      0.000E+00
+    X_U8A.VA1   -1.479E-11
+    X_U8A.VA2   -1.978E-13
+    X_U8A.VA3    1.440E-11
+    X_U8A.V2     4.253E-12
+    X_U8A.V3    -3.130E-03
+    X_U8A.V4    -6.405E-13
+    X_U8A.V5    -6.395E-13
+    X_U8A.V6    -2.102E-04
+    X_U8A.V7    -2.102E-04
+    X_X1.xcgd.v1   0.000E+00
+    X_X1.xcds.v1   0.000E+00
+
+    TOTAL POWER DISSIPATION   1.21E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 02/24/15 00:03:46 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-PWMchange"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\pwmchange.sim ] 
+
+
+ ****     JOB STATISTICS SUMMARY
+
+ ****     CURRENT STEP                     PARAM D =    1     
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =       30.67
+

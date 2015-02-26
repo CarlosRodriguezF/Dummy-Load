@@ -1,17 +1,25 @@
 * source DUMMY LOAD
 V_Vcc         VCC 0 5V
-R_R3         0 N14702  0.5  
+R_R3         0 N14704  0.5  
 V_Vss         VSS 0 {VSS}
-R_R4         N17115 0  10k  
-X_U1A         N32894 N14702 VCC 0 N17115 LM324
-X_X1         VSS N17115 N14702 CSD18502KCS
-X_U1B         N28782 N27021 VCC 0 N27021 LM324
-R_R5         N27580 PWM  10k  
+X_X1         VSS N45179 N14704 CSD18502KCS
+R_R5         N27580 PWM1  10k  
 R_R6         0 N27580  4.2k  
 R_R7         N28782 N27580  1k  
 C_C1         0 N28782  0.1u  
 V_V1         PWM 0  AC 5V
-+PULSE 0V 5V 10e-9 10e-9 10e-9 {1*PER} {PER}
-R_R8         N32894 N27021  1k  
-C_C2         0 N32894  0.1u  
-.PARAM  per=2e-4 pw={1*per} vss=12
++PULSE 0V 5V 10e-9 10e-9 10e-9 {D*PER} {PER}
+X_U6         PWM PWM1 Sw_tOpen PARAMS: tOpen=0 ttran=1u Rclosed=0.01 Ropen=1Meg
+X_U7         PWM PWM1 Sw_tClose PARAMS: tClose=3m ttran=1u Rclosed=0.01
++  Ropen=1Meg
+R_R9         N45179 N42822  10k  
+R_R4         N42822 0  100k  
+X_X2         VSS N45179 N14704 CSD18502KCS
+D_D1         VCC N47862 D1N4007 
+R_R10         0 N47862  500  
+X_U8B         N50153 N14704 VCC 0 N42822 LMC662A/NS
+C_C2         0 N50153  0.1u  
+R_R8         N50153 N51221  1k  
+X_U8A         N28782 N51221 VCC 0 N512554 LMC662A/NS
+R_R11         N51221 N512554  100k  
+.PARAM  per=5e-5 pw={d*per} d=0 vss=12

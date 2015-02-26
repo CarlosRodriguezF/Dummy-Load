@@ -1,5 +1,5 @@
 
-**** 02/15/15 17:24:27 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+**** 02/25/15 00:09:35 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
 
  ** Profile: "SCH-1MOS-bias"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\bias.sim ] 
 
@@ -19,11 +19,12 @@
 * Profile Libraries :
 * Local Libraries :
 * From [PSPICE NETLIST] section of C:\Cadence\SPB_16.5\tools\PSpice\PSpice.ini file:
+.lib "C:\Cadence\SPB_16.5\tools\pspice\library\anl_misc.lib" 
 .lib "C:\Cadence\SPB_16.5\tools\capture\library\pspice\CSD18502KCS.lib" 
 .lib "nom.lib" 
 
 *Analysis directives: 
-.TRAN  0 5ms 0 
+.TRAN  0 10ms 0 
 .PROBE V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
 .INC "..\SCH-1MOS.net" 
 
@@ -32,24 +33,320 @@
 **** INCLUDING SCH-1MOS.net ****
 * source DUMMY LOAD
 V_Vcc         VCC 0 5V
-R_R3         0 N14702  0.5  
+R_R3         0 N14704  0.5  
 V_Vss         VSS 0 {VSS}
-R_R4         N17115 0  10k  
-X_U1A         N32894 N14702 VCC 0 N17115 LM324
-X_X1         VSS N17115 N14702 CSD18502KCS
-X_U1B         N28782 N27021 VCC 0 N27021 LM324
-R_R5         N27580 PWM  0  
--------------------------$
-ERROR(ORPSIM-16144): Value may not be 0
-R_R6         0 N27580  1Meg  
+X_X1         VSS N45179 N14704 CSD18502KCS
+R_R5         N27580 PWM1  10k  
+R_R6         0 N27580  4.2k  
 R_R7         N28782 N27580  1k  
 C_C1         0 N28782  0.1u  
 V_V1         PWM 0  AC 5V
-+PULSE 0V 5V 10e-9 10e-9 10e-9 {1*PER} {PER}
-R_R8         N32894 N27021  1k  
-C_C2         0 N32894  0.1u  
-.PARAM  per=2e-4 pw={1*per} vss=12
++PULSE 0V 5V 10e-9 10e-9 10e-9 {D*PER} {PER}
+R_R8         N33036 N27021  1k  
+C_C2         0 N33036  0.1u  
+X_U6         PWM PWM1 Sw_tOpen PARAMS: tOpen=0 ttran=1u Rclosed=0.01 Ropen=1Meg
+X_U7         PWM PWM1 Sw_tClose PARAMS: tClose=3m ttran=1u Rclosed=0.01
++  Ropen=1Meg
+R_R9         N45179 N42822  10k  
+R_R4         N42822 0  100k  
+X_X2         VSS N45179 N14704 CSD18502KCS
+D_D1         VCC N47862 D1N4007 
+R_R10         0 N47862  500  
+X_U8A         N14704 N33036 VCC 0 N42822 LMC662B/NS
+X_U8B         N27021 N28782 VCC 0 N27021 LMC662B/NS
+.PARAM  per=5e-5 pw={d*per} d=0 vss=12
 
 **** RESUMING bias.cir ****
 .END
+
+INFO(ORPSIM-15453): Model X_X1.NMOS: Using BSIM VERSION 3.2
+
+INFO(ORPSIM-15453): Model X_X2.NMOS: Using BSIM VERSION 3.2
 
+**** 02/25/15 00:09:35 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-bias"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\bias.sim ] 
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D1N4007         D1N4001         X_U8A.DA        X_U8A.DB        
+          IS   14.110000E-09   14.110000E-09   13.000000E-15   12.000000E-15 
+           N    1.984           1.984                                        
+         IKF   94.81           94.81                                         
+          BV    1.500000E+03   75                                            
+         IBV   10.000000E-06   10.000000E-06                                 
+          RS     .03389          .03389                                      
+          TT    5.700000E-06    5.700000E-06                                 
+         CJO   25.890000E-12   25.890000E-12                                 
+          VJ     .3245           .3245                                       
+           M     .44             .44                                         
+
+
+               X_U8A.DX        X_U8B.DA        X_U8B.DB        X_U8B.DX        
+          IS   10.000000E-15   13.000000E-15   12.000000E-15   10.000000E-15 
+
+
+**** 02/25/15 00:09:35 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-bias"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\bias.sim ] 
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U8A.MX        X_U8B.MX        
+               PMOS            PMOS            
+       LEVEL    1               1            
+           L  100.000000E-06  100.000000E-06 
+           W  100.000000E-06  100.000000E-06 
+         VTO   -2.45           -2.45         
+          KP  705.470000E-06  705.470000E-06 
+       GAMMA    0               0            
+         PHI     .6              .6          
+      LAMBDA    0               0            
+          IS   10.000000E-15   10.000000E-15 
+          JS    0               0            
+          PB     .8              .8          
+        PBSW     .8              .8          
+          CJ    0               0            
+        CJSW    0               0            
+        CGSO    0               0            
+        CGDO    0               0            
+        CGBO    0               0            
+         TOX    0               0            
+          XJ    0               0            
+       UCRIT   10.000000E+03   10.000000E+03 
+      DIOMOD    1               1            
+         VFB    0               0            
+        LETA    0               0            
+        WETA    0               0            
+          U0    0               0            
+        TEMP    0               0            
+         VDD    5               5            
+       XPART    0               0            
+
+
+**** 02/25/15 00:09:35 ****** PSpice 16.5.0 (April 2011) ****** ID# 0 ********
+
+ ** Profile: "SCH-1MOS-bias"  [ C:\Users\Carlos\Documents\DummyLoad\dummy load-pspicefiles\sch-1mos\bias.sim ] 
+
+
+ ****     Voltage Controlled Switch MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U6.Smod       X_U7.Smod       
+         RON     .01             .01         
+        ROFF    1.000000E+06    1.000000E+06 
+         VON    1               1            
+        VOFF    0               0            
+
+
+ERROR -- Convergence problem in transient bias point calculation
+
+
+  Last node voltages tried were:
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  PWM)    0.0000  (  VCC)    1.7378  (  VSS)    4.1707  ( PWM1) 2.155E-09      
+
+(N14704) 90.28E-12 (N27021)     .0141 (N27580) 5.813E-09 (N28782) 7.562E-09     
+
+(N33036)     .0141 (N42822) 2.390E-06 (N45179) 3.080E-06 (N47862)    1.1231     
+
+(X_U6.3)     .3476 (X_U7.3)    0.0000 (X_X1.4)    4.1707 (X_X1.5) 3.080E-06     
+
+(X_X1.6) 90.28E-12 (X_X1.7)    4.1707 (X_X1.8) 90.32E-12 (X_X1.9) 90.33E-12     
+
+(X_X2.4)    4.1707 (X_X2.5) 3.080E-06 (X_X2.6) 90.28E-12 (X_X2.7)    4.1707     
+
+(X_X2.8) 90.32E-12 (X_X2.9) 90.33E-12 (X_U8A.4)    2.2691                       
+
+(X_U8A.5) 9.560E-09                   (X_U8A.6) 379.5E-06                       
+
+(X_U8A.7)    -.1950                   (X_U8A.8)     .3534                       
+
+(X_U8A.9)    -.2924                   (X_U8B.4)    2.2692                       
+
+(X_U8B.5) 9.560E-09                   (X_U8B.6) 11.33E-09                       
+
+(X_U8B.7)    -.1809                   (X_U8B.8)     .3534                       
+
+(X_U8B.9)     .3014                   (X_X1.10)    4.1707                       
+
+(X_X1.11) 3.080E-06                   (X_X1.12) 90.34E-12                       
+
+(X_X2.10)    4.1707                   (X_X2.11) 3.080E-06                       
+
+(X_X2.12) 90.34E-12                   (X_U8A.10)     .2506                      
+
+(X_U8A.11)    -.1016                  (X_U8A.12)     .1880                      
+
+(X_U8A.13)     .1880                  (X_U8A.14)     .1880                      
+
+(X_U8A.15)    -.0353                  (X_U8A.16)     .3020                      
+
+(X_U8A.17)     .3020                  (X_U8A.19)    -.0123                      
+
+(X_U8A.20)     .2190                  (X_U8A.21)    -.2190                      
+
+(X_U8A.22) 2.390E-06                  (X_U8A.23)    -.0123                      
+
+(X_U8A.24)    -.0123                  (X_U8A.25)    -.0123                      
+
+(X_U8A.26)     .2190                  (X_U8A.27)    -.2190                      
+
+(X_U8A.29)     .2190                  (X_U8A.30)    -.2190                      
+
+(X_U8A.49)     .8689                  (X_U8A.96)    0.0000                      
+
+(X_U8A.97)     .6040                  (X_U8A.98)     .3020                      
+
+(X_U8B.10)     .2506                  (X_U8B.11)     .1047                      
+
+(X_U8B.12)     .1093                  (X_U8B.13)     .1093                      
+
+(X_U8B.14)     .1093                  (X_U8B.15)     .0364                      
+
+(X_U8B.16)     .3020                  (X_U8B.17)     .3020                      
+
+(X_U8B.19)     .0127                  (X_U8B.20)     .2330                      
+
+(X_U8B.21)    -.2049                  (X_U8B.22)     .0141                      
+
+(X_U8B.23)     .0127                  (X_U8B.24)     .0127                      
+
+(X_U8B.25)     .0127                  (X_U8B.26)     .2330                      
+
+(X_U8B.27)    -.2049                  (X_U8B.29)     .2330                      
+
+(X_U8B.30)    -.2049                  (X_U8B.49)     .8689                      
+
+(X_U8B.96)    0.0000                  (X_U8B.97)     .6040                      
+
+(X_U8B.98)     .3020                  (X_X1.xcds.5)    1.4495                   
+
+(X_X1.xcds.6) 1.572E-09               (X_X1.xcds.7)    0.0000                   
+
+(X_X1.xcds.8)    0.0000               (X_X1.xcgd.5)    1.4495                   
+
+(X_X1.xcgd.6) 112.1E-12               (X_X1.xcgd.7)    0.0000                   
+
+(X_X1.xcgd.8)    0.0000               (X_X2.xcds.5)    1.4495                   
+
+(X_X2.xcds.6) 1.572E-09               (X_X2.xcds.7)    0.0000                   
+
+(X_X2.xcds.8)    0.0000               (X_X2.xcgd.5)    1.4495                   
+
+(X_X2.xcgd.6) 112.1E-12               (X_X2.xcgd.7)    0.0000                   
+
+(X_X2.xcgd.8)    0.0000               
+
+
+  These voltages failed to converge:
+
+    V(N33036)                 =   518.59mV  \    14.07mV
+    V(N27021)                 =   518.59mV  \    14.07mV
+    V(N45179)                 =   -26.58uV  \    3.081uV
+    V(N42822)                 =   -26.67uV  \    2.390uV
+    V(X_X1.11)                =   -26.58uV  \    3.081uV
+    V(X_X1.5)                 =   -26.58uV  \    3.081uV
+    V(X_X2.11)                =   -26.58uV  \    3.081uV
+    V(X_X2.5)                 =   -26.58uV  \    3.081uV
+    V(X_U8A.9)                =    -1.628V  \  -292.45mV
+    V(X_U8A.6)                =    19.89mV  \   379.49uV
+    V(X_U8A.4)                =     2.264V  \     2.269V
+    V(X_U8A.11)               =  -565.74mV  \  -101.64mV
+    V(X_U8A.15)               =  -196.62mV  \   -35.32mV
+    V(X_U8A.24)               =   -68.34mV  \   -12.28mV
+    V(X_U8A.25)               =   -68.34mV  \   -12.28mV
+    V(X_U8A.22)               =   -26.67uV  \    2.390uV
+    V(X_U8A.14)               =   329.21mV  \   187.99mV
+    V(X_U8A.12)               =   329.21mV  \   187.99mV
+    V(X_U8A.7)                =  -560.95mV  \  -194.95mV
+    V(X_U8A.19)               =   -68.34mV  \   -12.28mV
+    V(X_U8A.13)               =   329.21mV  \   187.99mV
+    V(X_U8A.23)               =   -68.34mV  \   -12.28mV
+    V(X_U8B.9)                =     12.33V  \   301.37mV
+    V(X_U8B.6)                =   -34.60uV  \    11.33nV
+    V(X_U8B.11)               =     4.285V  \   104.75mV
+    V(X_U8B.15)               =     1.489V  \    36.41mV
+    V(X_U8B.20)               =   737.55mV  \   233.03mV
+    V(X_U8B.21)               =   299.63mV  \  -204.89mV
+    V(X_U8B.26)               =   737.55mV  \   233.03mV
+    V(X_U8B.24)               =   517.58mV  \    12.65mV
+    V(X_U8B.25)               =   517.58mV  \    12.65mV
+    V(X_U8B.27)               =   299.63mV  \  -204.89mV
+    V(X_U8B.22)               =   518.59mV  \    14.07mV
+    V(X_U8B.14)               =    95.33mV  \   109.25mV
+    V(X_U8B.12)               =    95.33mV  \   109.25mV
+    V(X_U8B.7)                =   -42.35mV  \  -180.89mV
+    V(X_U8B.19)               =   517.58mV  \    12.65mV
+    V(X_U8B.13)               =    95.33mV  \   109.25mV
+    V(X_U8B.23)               =   517.58mV  \    12.65mV
+    V(X_U8B.29)               =   737.55mV  \   233.03mV
+    V(X_U8B.30)               =   299.63mV  \  -204.89mV
+    V(X_X1.xcgd.5)            =     4.171V  \     1.450V
+    V(X_X1.xcds.5)            =     4.171V  \     1.450V
+    V(X_X2.xcgd.5)            =     4.171V  \     1.450V
+    V(X_X2.xcds.5)            =     4.171V  \     1.450V
+
+  These supply currents failed to converge:
+
+    I(X_U8A.EH)               =  -690.99uA  \   -13.13uA
+    I(X_U8A.EN)               =   690.99uA  \    13.13uA
+    I(X_U8A.EP)               =   690.99uA  \    13.13uA
+    I(X_U8A.E1)               =  -276.35pA  \   -46.83pA
+    I(X_U8B.EH)               =    27.27pA  \    43.39fA
+    I(X_U8B.EN)               =   -12.74pA  \   -59.38fA
+    I(X_U8B.EP)               =   -10.96pA  \    5.092pA
+    I(X_U8B.E1)               =   -3.726pA  \   -5.196pA
+    I(X_X1.xcgd.e1)           =   -4.171uA  \   -1.450uA
+    I(X_X1.xcds.e1)           =   -4.171uA  \   -1.450uA
+    I(X_X2.xcgd.e1)           =   -4.171uA  \   -1.450uA
+    I(X_X2.xcds.e1)           =   -4.171uA  \   -1.450uA
+    I(X_X1.LGG)               =   -4.171pA  \   -34.53pA
+    I(X_X1.L)                 =    44.11pA  \    74.47pA
+    I(X_X1.LDD)               =    48.20pA  \   108.69pA
+    I(X_X2.LGG)               =   -4.171pA  \   -34.53pA
+    I(X_X2.L)                 =    44.11pA  \    74.47pA
+    I(X_X2.LDD)               =    48.20pA  \   108.69pA
+    I(X_U8A.L1)               =  -274.99pA  \   -45.15pA
+    I(X_U8A.L2)               =   -43.16nA  \   -21.21nA
+    I(X_U8B.L1)               =   -1.191pA  \   -3.436pA
+    I(X_U8B.L2)               =   -43.16nA  \   -21.21nA
+    I(V_Vcc)                  =   -2.477mA  \   -2.473mA
+    I(V_Vss)                  =  -126.27pA  \  -247.24pA
+    I(X_U8A.VA1)              =  -276.35pA  \   -46.83pA
+    I(X_U8A.VA3)              =    92.98pA  \    14.52pA
+    I(X_U8A.V2)               =    1.991pA  \   655.83fA
+    I(X_U8A.V3)               =  -690.99uA  \   -13.13uA
+    I(X_U8A.V6)               =  -242.03pA  \   -76.57pA
+    I(X_U8A.V7)               =    34.32pA  \   -29.74pA
+    I(X_U8B.VA1)              =   -3.726pA  \   -5.196pA
+    I(X_U8B.V2)               =   -12.59pA  \    60.68fA
+    I(X_U8B.V3)               =    12.74pA  \    59.38fA
+
+  These devices failed to converge:
+    X_U8A.D2  X_U8A.D5  X_U8A.D6  X_U8A.D10 X_U8B.D1  X_U8B.D3  X_X1.xcgd.e2 
+    X_X1.xcds.e2 X_X2.xcgd.e2 X_X2.xcds.e2 X_U8A.M1  X_U8A.M2  X_U8B.M2  
+
+**** Interrupt ****
